@@ -23,6 +23,7 @@ Historical reconstruction must not silently convert memory into measurement. Pro
 4. Separate prior art, code-derived behavior, inference, and independent observation.
 5. Record negative results and expected compatibility failures.
 6. Do not implement or replay a protocol until a measured question and safe test setup exist.
+7. A polished title screen does not prove retail release, successful boot does not prove a clean dump, and emulator behavior does not establish physical-bus behavior.
 
 ## Chronology
 
@@ -33,6 +34,12 @@ Shonumi's Singer IZEK / Jaguar JN reverse-engineering article was archived at:
 `https://web.archive.org/web/20260307065209/https://shonumi.github.io/articles/art22.html`
 
 Classification: `prior-art preservation`.
+
+### 2026-04-18: prior work recognized
+
+The project owner recognized Shonumi's article and GBE+ as substantial existing work rather than a new project discovery. Future work was required to attribute prior art, distinguish reproduction from discovery, and preserve stable references.
+
+Classification: `decision` and `prior-art preservation`.
 
 ### Historical work, exact dates not recovered
 
@@ -55,6 +62,8 @@ Reported results:
 Classification: `observed/reported`.
 
 Missing evidence: OSCR revision and firmware, host software and version, source cartridge identity, filenames, byte lengths, repeated-read equality, hashes, emulator/version, screenshots, and command transcript.
+
+Minimum future validation: two matching reads, cryptographic hashes, valid header/checksum where applicable, preservation-database comparison when available, emulator smoke test, and cautious save read/write testing only after cartridge and voltage handling are understood.
 
 #### Singer IZEK powered bring-up
 
@@ -106,6 +115,19 @@ Missing evidence: exact source and redump hashes, byte-for-byte comparison, comp
 
 Classification: mixture of `decision` and `observed/reported` until the workbook or a hashed safe derivative is imported.
 
+##### Sewing-machine software inventory
+
+| Software | Role | Project evidence | Release-status boundary |
+|---|---|---|---|
+| Sewing Machine Operation Software (USA) (En,Fr,Es) (GB Compatible) | Western Singer IZEK control software | Local image and boot screenshot reported | Exact local dump identity unverified |
+| Raku x Raku Mishin | JN-100 base sewing/control software | Boot and menu screenshots reported | Commercial-title classification retained from prior work |
+| Raku x Raku Moji | JN-2000 lettering software | Boot and menu screenshots reported | Commercial-title classification retained from prior work |
+| Raku x Raku Cut Shuu | JN-2000 design software | Boot and menu screenshots reported | Commercial-title classification retained from prior work |
+| Mario Family | JN-2000 licensed embroidery designs | Boot and selection screenshots reported | Commercial-title classification retained from prior work |
+| Kirby Family | JN-2000 embroidery software | Local ROM/save and boot screenshots reported | `(Proto)` is catalog metadata; polished presentation does not establish retail release |
+
+A European Western variant is mentioned in prior art, but the project has not established whether it is a distinct ROM, packaging variant, revision, or catalog entry. Additional variants or prototypes require primary-source, physical-artifact, preservation-database, or reproducible hash evidence.
+
 ##### Singer operation software header retained from project history
 
 Filename:
@@ -136,9 +158,18 @@ The cartridge is a single-image rewritable target; changing software requires re
 
 Original MBC5 + RAM + battery cartridges generally use volatile SRAM maintained by a coin cell. Modern FRAM replacement cartridges provide non-volatile save storage without a battery. FRAM is a development convenience and reliability improvement; it is not evidence that an original cartridge used FRAM.
 
-#### DS flash-cart side work
+#### 2026-08-04 handheld and flash-cart side work
 
-DS/R4, Ace3DS+, EZ-Flash Parallel, and DSPico work is a separate deployment and implementation thread. It may inform general cartridge-development practice but is not evidence for native GB/GBC cartridge timing, link-port signaling, or IZEK compatibility.
+Reported results:
+
+- an old R4 SDHC was revived using period firmware sources;
+- GameYob and GBARunner2 were made operational on Nintendo DS hardware;
+- a Kingston 32 GB SD card failed during the process, with cause unknown;
+- ROM files were recovered from an Allwinner-based R36S clone;
+- attempts to install an alternate operating system on the R36S clone were unsuccessful;
+- a dog-damaged GBA SP was identified as a possible link-port donor and separate repair or consolization project.
+
+These results expand the available test environment but do not establish sewing-machine protocol behavior. The failed SD card must not be attributed to firmware, incompatibility, write amplification, or electrical damage without diagnostics.
 
 ### 2026-08-04: repository normalization
 
@@ -149,6 +180,25 @@ DS/R4, Ace3DS+, EZ-Flash Parallel, and DSPico work is a separate deployment and 
 - Deferred protocol code pending physical-machine validation, intended-hardware testing, and project-generated captures.
 
 Classification: `repository-state`.
+
+## Prior-art protocol summary
+
+The following are attributed to Shonumi's article and GBE+ work and are not project discoveries:
+
+- sewing-machine communication alternates clock roles, with Game Boy and machine switching internal and external serial-clock modes;
+- machine-clocked Game Boy transfers may not always produce a serial interrupt;
+- stitching transfers use packets reported up to 128 bytes;
+- `0xB9` and `0xBB` are reported packet-boundary markers;
+- JN-100/IZEK stitch data contains a header, coordinate-like body, and checksum-like ending;
+- base-format X is treated as an absolute needle position while a Y-like value describes fabric movement around neutral value `0x14`, with the prior Y value affecting the following X movement;
+- JN-2000 software checks a one-byte machine status, with `0x06` and `0x07` interpreted in GBE+ as small and large hoops;
+- JN-2000 embroidery coordinates use a different signed-direction encoding involving bit 6;
+- embroidery jump or relocation structures are reported between `0xBE` and `0xBD`, with 16-bit little-endian shifts and `0xFF` separators;
+- designs may transfer as separate color or section passes with absolute starting positions.
+
+These statements require claim-level citation to article sections or pinned GBE+ files and symbols before detailed reliance. Local reproduction should record exact ROM hashes, emulator builds, `SB`/`SC` activity, interrupts, clock selection, timing, raw physical captures, and deviations from prior art.
+
+Open questions include exact clock-phase ownership on local hardware, transport differences between Western and Japanese base software, the European variant, Kirby protocol maturity, integrity fields, status bits, and whether a microcontroller can safely emulate a minimal deterministic endpoint.
 
 ## Decisions
 
@@ -177,12 +227,17 @@ Do not begin protocol implementation merely because prior art exists. First esta
 | EVD-20260804-008 | Canonical compatibility workbook exists | observed/reported | not imported |
 | EVD-20260804-009 | FunnyPlaying write/redump path | observed/reported | awaiting artifacts |
 | EVD-20260804-010 | InsideGadgets CFI write/redump path | observed/reported | awaiting artifacts |
+| EVD-20260804-011 | Sewing software boot/screenshots | observed/reported | hashes and exact emulator records missing |
+| EVD-20260804-012 | R4, GameYob, and GBARunner2 side-work | observed/reported | separate from IZEK evidence |
+| EVD-20260804-013 | R36S ROM recovery | observed/reported | side investigation |
+| EVD-20260804-014 | Kingston SD-card failure | observed/reported | cause unknown |
 
 Current claims:
 
 - A working OSCR-based ROM/save workflow is reported but not artifact-backed.
 - The IZEK can be powered and mechanically actuated, but a valid threaded stitch is not established.
 - Rewritable cartridge write/redump paths are reported, but flash-cart communication with the physical IZEK is not established.
+- Multiple sewing-machine images reportedly booted in emulators, but exact hashes, revisions, and release identities remain unverified.
 - No project-generated IZEK capture, voltage measurement, decoded packet, replay trace, endpoint emulator, or independently verified protocol implementation exists.
 - Shonumi's protocol findings have not been independently reproduced by this project.
 
