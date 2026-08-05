@@ -8,16 +8,11 @@ Original dated photographs are maintained in the project evidence album:
 
 The album is the browseable visual source. The hashes below identify the reviewed original files independently of the album host.
 
-## Workbook revisions
+## Workbook status
 
-The dated compatibility workbook and the repository workbook have different hashes and must remain distinct revisions.
+The previously committed `artifacts/izek_test_matrix.xlsx` did not open as a valid workbook in offline spreadsheet applications and has been removed from this cleanup branch.
 
-- dated workbook path: `artifacts/2026-05-03-compatibility-workbook/izek_test_matrix.xlsx`
-- dated workbook SHA-256: `a1bb3aa68c7cec801a31c387377345be2a513a7677a2c83d6f8c18c97cc86d9d`
-- repository workbook path: `artifacts/izek_test_matrix.xlsx`
-- repository workbook SHA-256: `fdb941a3a6936b61b20042d2fc8c103e78ca737df4389bdbfad5c45dccebd9e0`
-
-Do not silently replace either revision with the other.
+A replacement must not be committed until it is validated by opening it offline and verifying its SHA-256 hash. Historical workbook hashes recorded during intake are not treated as proof that a usable workbook artifact exists.
 
 ## Original photo hashes
 
