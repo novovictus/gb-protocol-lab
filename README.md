@@ -6,22 +6,25 @@ The initial research target is the Singer IZEK / Jaguar JN sewing-machine interf
 
 ## Current phase
 
-The project is in repository setup, asset inventory, prior-art mapping, evidence preservation, and preparation for controlled hardware capture.
+The project has progressed beyond repository setup:
 
-No independent protocol implementation, validated Singer/Jaguar communication capture, or confirmed hardware reproduction is claimed yet.
+- OSCR hardware has been built.
+- Game Boy ROM dumping works.
+- Game Boy save dumping works.
+- At least one dump was validated by successful use in an emulator.
+- A replacement foot controller has powered the Singer IZEK and produced basic sewing-machine motion.
 
-Retained project history records substantial pre-repository bench work, including OSCR validation, rewritable-cartridge flash/redump tests, target-ROM classification, acquisition of a Singer IZEK 1500, and selection of original Game Boy hardware as the current execution baseline. These records remain labeled `reported` until their primary artifacts are attached.
+These results are retained from project history as `observed/reported`. Raw dump logs, hashes, photographs, exact hardware revisions, and a dated sewing test record are still required before the notebook can promote them to fully artifact-backed observations.
+
+The machine has not yet been documented producing a valid threaded stitch. No independent protocol capture, decoded command stream, replay, or replacement endpoint is claimed.
 
 See:
 
 - [Project status](docs/STATUS.md)
+- [Historical reconstruction](docs/HISTORICAL-RECONSTRUCTION.md)
 - [Research methodology](docs/METHODOLOGY.md)
 - [Evidence register](docs/EVIDENCE.md)
 - [Evidence and claim matrix](docs/EVIDENCE-MATRIX.md)
-- [Hardware and tooling inventory](docs/HARDWARE-INVENTORY.md)
-- [Cartridge and ROM notes](docs/CARTRIDGE-NOTES.md)
-- [Experiment plan](docs/EXPERIMENT-PLAN.md)
-- [Provenance policy](docs/PROVENANCE.md)
 - [References and prior art](docs/REFERENCES.md)
 - [Roadmap](docs/ROADMAP.md)
 - [Research log](docs/RESEARCH-LOG.md)
@@ -32,9 +35,9 @@ Every technical claim should identify its basis:
 
 | Label | Meaning |
 | --- | --- |
-| `observed` | Directly measured or recorded by this project |
+| `observed` | Directly measured or recorded by this project with supporting artifacts |
+| `observed/reported` | Direct bench result retained from project history but not yet backed by repository artifacts |
 | `reproduced` | Prior behavior independently repeated by this project |
-| `reported` | Retained from earlier project work but not yet tied to a primary repository artifact |
 | `inferred` | Conclusion drawn from evidence but not directly observed |
 | `prior-art` | Reported by an external source |
 | `code-derived` | Determined by reading an existing implementation |
@@ -43,10 +46,24 @@ Every technical claim should identify its basis:
 
 Claims should reference an evidence ID, experiment ID, source citation, artifact hash, or reproducible procedure.
 
+## Claim boundary
+
+The project currently supports a cartridge acquisition and execution workflow, but not an independently verified IZEK protocol implementation.
+
+Established project capabilities do not by themselves prove:
+
+- the IZEK link connector pinout;
+- voltage levels or electrical direction;
+- serial clock ownership;
+- packet framing or command semantics;
+- coordinate, stitch, or pattern encoding;
+- behavioral equivalence among Singer IZEK 1500, Jaguar JN-100, and Jaguar JN-2000;
+- compatibility of a flash cart with the physical sewing machine.
+
 ## Repository layout
 
 ```text
-docs/          Status, methodology, evidence register, references, and research log
+docs/          Status, methodology, evidence, references, history, and experiments
 captures/      Raw and processed communication captures
 hardware/      Hardware inventory, pinouts, fixtures, and test configurations
 tools/         Host-side analysis, conversion, and capture utilities
