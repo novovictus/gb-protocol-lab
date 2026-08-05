@@ -106,6 +106,36 @@ Missing evidence: exact source and redump hashes, byte-for-byte comparison, comp
 
 Classification: mixture of `decision` and `observed/reported` until the workbook or a hashed safe derivative is imported.
 
+##### Singer operation software header retained from project history
+
+Filename:
+
+`Sewing Machine Operation Software (USA) (En,Fr,Es) (GB Compatible).gbc`
+
+Recorded header interpretation:
+
+| Field | Recorded value | Meaning |
+|---|---:|---|
+| CGB flag (`0x0143`) | `0x80` | CGB-enhanced / backward compatible |
+| cartridge type (`0x0147`) | `0x1B` | MBC5 + RAM + battery |
+| ROM size (`0x0148`) | `0x05` | 1 MiB |
+| RAM size (`0x0149`) | `0x02` | 8 KiB |
+| destination (`0x014A`) | `0x01` | non-Japanese |
+
+Status: `reported`; no generated header report or image hash is committed.
+
+##### Non-IZEK cartridge controls
+
+`Pokemon Picross` beta and `Grimace's Birthday` were identified as controlled non-IZEK targets for validating ordinary flash, boot, save, redump, and hash workflows. Retained history reports that both declare cartridge type `0x1B` and 32 KiB external RAM.
+
+Compatibility with the InsideGadgets MBC5 2 MiB / 32 KiB FRAM cartridge is an inference from reported header and capacity data, not a completed hardware result. Success with either image would validate only the cartridge workflow and would provide no evidence about IZEK electrical or protocol compatibility.
+
+The cartridge is a single-image rewritable target; changing software requires reflashing rather than selecting from a multi-ROM menu.
+
+##### SRAM and FRAM terminology
+
+Original MBC5 + RAM + battery cartridges generally use volatile SRAM maintained by a coin cell. Modern FRAM replacement cartridges provide non-volatile save storage without a battery. FRAM is a development convenience and reliability improvement; it is not evidence that an original cartridge used FRAM.
+
 #### DS flash-cart side work
 
 DS/R4, Ace3DS+, EZ-Flash Parallel, and DSPico work is a separate deployment and implementation thread. It may inform general cartridge-development practice but is not evidence for native GB/GBC cartridge timing, link-port signaling, or IZEK compatibility.
