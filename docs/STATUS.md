@@ -33,6 +33,11 @@ Results retained as `observed/reported` unless later backed by committed evidenc
 - A replacement controller powered the Singer IZEK and produced machine motion.
 - The feed-dog lift failure was traced to a broken notch on the mechanical slider that engages the cam. Manually positioning the slider restored engagement of the downstream mechanism.
 - The installed needle used during initial bring-up was physically broken and unsuitable for a valid sewing test.
+- The lower plastic drop-in bobbin case reportedly arrived with substantial prior needle-strike marks.
+- Multiple reseating attempts reportedly did not prevent the bobbin case from shifting during automatic operation.
+- Continued tests reportedly caused thread jams, bent or broken needles, and additional marring of the bobbin case.
+- Under automatic operation, the bobbin case reportedly rotated approximately 10 degrees or more into the needle path and was struck by the needle.
+- The immediate mechanical fault is therefore consistent with inadequate bobbin-case retention or seating. This does not establish whether the root cause is the case itself, the stopper or position bracket, retainer/race hardware, or timing/alignment.
 - During the unresolved bring-up state, pressing sew reportedly caused the machine to accelerate, stop, and blink red at the switch or indicator.
 - The Game Boy software displayed an error graphic pointing toward the upper area of the machine during the same general troubleshooting period.
 - These mechanical and UI observations do not establish a direct thread-presence sensor, tension sensor, motor-overload code, position-sensor fault, or any specific protocol status.
@@ -56,6 +61,19 @@ Current project documentation must preserve these distinctions until project-own
 - Jaguar EM-2000 is an embroidery arm/accessory, not interchangeable with the base IZEK/JN-100 sewing path.
 
 An embroidery-software screen requesting or depicting the embroidery unit is compatible with missing JN-2000/EM-2000 capability. It does not prove that the project-owned IZEK accepts that unit, that the cartridge is defective, or that any exact protocol status byte has been identified.
+
+## Bobbin-case fault boundary
+
+The bobbin case should have limited clearance, not unrestricted rotation. The reported 10-degree-plus movement into the needle path is unsafe for powered operation and is sufficient to explain needle impact and thread jams without invoking a Game Boy or cartridge fault.
+
+Potential fault classes remain separate:
+
+1. damaged or incorrect bobbin case geometry;
+2. stopper or position-bracket seating, adjustment, screw, or clearance;
+3. retainer, retainer spring, shuttle race, or race-base fault;
+4. needle-bar alignment, hook timing, needle plate, or hook/race deformation after retention is verified.
+
+Source leads retained for later verification include bobbin-case families `76212`, `076212`, `141000810`, and `51045`; stopper or position references `76118` and possible retail cross-reference `51058`; and deeper hook-area references `76156`, `76157`, `76213`, `76027`, `76103`, and `85164`. These are search leads only, not verified interchangeability claims.
 
 ## Layered result model
 
@@ -85,6 +103,9 @@ Not established:
 - a valid threaded stitch or embroidery result;
 - completed upload for the photo-backed 2026-05-03 compatibility runs;
 - correct feed height, feed timing, stitch length, or durable feed-dog repair;
+- correct bobbin-case retention under handwheel, bobbin-only, threaded, or powered conditions;
+- whether the damaged bobbin case alone is sufficient cause;
+- stopper, retainer, shuttle-race, needle-bar, or hook-timing correctness;
 - correct spool support, spool-cap fit, or stable upper-thread feed;
 - electrical equivalence of the generic replacement foot controller;
 - the specific cause of the ramp-stop-red indication;
@@ -106,30 +127,40 @@ Not established:
 4. No exact ROM hashes, cartridge revisions, programmed-image verification, host board revisions, firmware/core versions, cable identities, machine state, error text, timestamps, repetition counts, or artifact hashes for the retained compatibility runs.
 5. No photographs or dimensions of the broken feed-dog slider notch, engaged/disengaged positions, or durable repair.
 6. No photograph or authoritative identification of the broken needle or validated replacement needle system/orientation.
-7. No photos or authoritative manual confirmation for bobbin class, bobbin-winder seating, spool-cap requirements, spool-pin setup, thread path, or oiling points.
-8. No model, rating, connector pinout, wiring, or safety comparison for the generic foot controller.
-9. No synchronized record of machine motion, red-indicator cadence, Game Boy screen, mechanical state, threading state, and exact sequence for the fault run.
-10. No documented ordinary threaded straight-stitch baseline.
-11. No complete OSCR logs and source/redump hash pairs.
-12. No protected passive breakout, voltage survey, or project-generated raw capture.
-13. No pinned GBE+ commit, files, symbols, and license extraction for each code-derived claim.
-14. No pinned prior-art section or project-owned source establishing the JN-2000/EM-2000 model relationship.
+7. No high-resolution photos of the bobbin case, locating tab, stopper or position bracket, retainer/race stack, needle plate, or strike marks.
+8. No controlled handwheel record separating no-thread, bobbin-only, threaded, and powered behavior.
+9. No authoritative cross-reference confirming any candidate bobbin case, stopper, retainer, or race part for the exact IZEK machine revision.
+10. No photos or authoritative manual confirmation for bobbin class, bobbin-winder seating, spool-cap requirements, spool-pin setup, thread path, or oiling points.
+11. No model, rating, connector pinout, wiring, or safety comparison for the generic foot controller.
+12. No synchronized record of machine motion, red-indicator cadence, Game Boy screen, mechanical state, threading state, and exact sequence for the fault run.
+13. No documented ordinary threaded straight-stitch baseline.
+14. No complete OSCR logs and source/redump hash pairs.
+15. No protected passive breakout, voltage survey, or project-generated raw capture.
+16. No pinned GBE+ commit, files, symbols, and license extraction for each code-derived claim.
+17. No pinned prior-art section or project-owned source establishing the JN-2000/EM-2000 model relationship.
 
 ## Immediate actions
 
-1. Map each original photo hash and workbook row to a separate experiment/evidence record.
-2. Preserve both workbook revisions and document their chronology and content differences.
-3. Retest one exact image/cart/host combination at a time, recording machine power state, attachments, thread state, selected operation, exact screen text, and repetition count.
-4. Keep boot, UI, link initialization, upload start, upload completion, physical motion, and stitch formation as separate fields.
-5. Photograph the broken slider/notch, measure it, record engaged and disengaged positions, and document a reversible retention or durable repair.
-6. Identify the correct needle system from an authoritative source, install a known-good universal household needle in the correct orientation, and verify unobstructed handwheel rotation before powered operation.
-7. Document ordinary sewing setup: exact bobbin type, bobbin-winder behavior, upper thread route, spool support, presser-foot state, feed-dog state, fabric, stabilizer, and tension settings.
-8. Identify the generic foot controller by model, rating, connector, wiring, and safety characteristics before attributing powered faults solely to the machine.
-9. Produce and document one ordinary valid straight stitch before interpreting protocol-driven motion as sewing success.
-10. Reproduce OSCR reads and both write/redump paths with complete logs and SHA-256 comparisons.
-11. Validate a protected passive fixture and voltage compatibility before active hardware is connected.
-12. Pin GBE+ commit and source locations before using implementation details.
-13. Pin the Shonumi/manual/catalog evidence for JN-100, JN-2000, and EM-2000 model roles.
+1. Stop powered sewing tests until the bobbin case remains constrained and the needle clears through manual rotation.
+2. Photograph the original bobbin case installed and removed, including locating geometry, strike marks, stopper contact, retainer/race hardware, and needle-plate damage.
+3. Install a new, straight, correctly oriented needle and perform at least 20 slow handwheel cycles with no upper thread and no bobbin.
+4. Confirm a firm clockwise/counterclockwise mechanical stop without case lift, rocking, or needle contact.
+5. Repeat only after passing each stage: bobbin installed without upper thread, then threaded handwheel test, then the slowest powered test.
+6. Reject replacement cases that differ in height, locating geometry, needle-clearance window, bottom profile, or stopper contact point.
+7. If a confirmed replacement case still rotates with no thread, inspect stopper position and screw, retainer and retainer spring, shuttle race, race base, cover, and prior-crash burrs.
+8. If the case is firmly retained but the needle still strikes, stop and treat the fault as timing, needle-bar, needle-plate, or hook/race alignment.
+9. Map each original compatibility photo hash and workbook row to a separate experiment/evidence record.
+10. Preserve both workbook revisions and document their chronology and content differences.
+11. Retest one exact image/cart/host combination at a time, recording machine power state, attachments, thread state, selected operation, exact screen text, and repetition count.
+12. Keep boot, UI, link initialization, upload start, upload completion, physical motion, and stitch formation as separate fields.
+13. Photograph the broken feed-dog slider/notch, measure it, record engaged and disengaged positions, and document a reversible retention or durable repair.
+14. Document ordinary sewing setup: exact bobbin type, bobbin-winder behavior, upper thread route, spool support, presser-foot state, feed-dog state, fabric, stabilizer, and tension settings.
+15. Identify the generic foot controller by model, rating, connector, wiring, and safety characteristics before attributing powered faults solely to the machine.
+16. Produce and document one ordinary valid straight stitch before interpreting protocol-driven motion as sewing success.
+17. Reproduce OSCR reads and both write/redump paths with complete logs and SHA-256 comparisons.
+18. Validate a protected passive fixture and voltage compatibility before active hardware is connected.
+19. Pin GBE+ commit and source locations before using implementation details.
+20. Pin the Shonumi/manual/catalog evidence for JN-100, JN-2000, and EM-2000 model roles.
 
 ## EM-2000 deferral decision
 
@@ -148,6 +179,7 @@ The initial future goal, when the gate is satisfied, is presence/capability/stat
 No active drive, replay, endpoint emulator, EM-2000 spoofing, or firmware implementation until all of the following are documented:
 
 - ordinary machine operation and at least one valid stitch;
+- corrected bobbin-case retention and safe needle clearance;
 - exact software, cartridge, host, cable, machine, and firmware identities;
 - deterministic write/redump verification with hashes;
 - protected passive measurement fixture;
