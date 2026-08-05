@@ -1,11 +1,11 @@
 # Research Notebook
 
-Canonical record for project history, evidence, decisions, and reconstructed experiments. Raw captures and protocol traces belong under `captures/`; this file records what the retained evidence supports.
+Canonical record for project history, evidence, decisions, and reconstructed experiments. Raw artifacts belong under `artifacts/` or `captures/`; this file records what they support.
 
 ## Evidence discipline
 
-- `observed`: directly supported by committed project evidence
-- `observed/reported`: direct operator observation without complete committed evidence
+- `observed`: directly supported by committed project artifacts
+- `observed/reported`: direct operator observation without complete committed artifacts
 - `reproduced`: external behavior independently repeated with project evidence
 - `inferred`: interpretation drawn from observations
 - `prior-art`: external published claim
@@ -13,7 +13,7 @@ Canonical record for project history, evidence, decisions, and reconstructed exp
 - `unverified`: plausible but unsupported
 - `superseded`: retained historically but replaced by stronger evidence
 
-Do not convert memory into measurement. Record exact hardware, software, firmware, setup, procedure, raw observations, limitations, hashes, and evidence paths. Preserve source evidence unchanged and create derivatives separately. Successful boot does not prove a clean dump; emulator behavior does not prove physical-bus behavior; a repeatable waveform is not yet a packet; a byte sequence is not yet a command.
+Do not convert memory into measurement. Record exact hardware, software, firmware, setup, procedure, raw observations, limitations, hashes, and artifact paths. Preserve raw evidence unchanged and create derivatives separately. Successful boot does not prove a clean dump; emulator behavior does not prove physical-bus behavior; a repeatable waveform is not yet a packet; a byte sequence is not yet a command.
 
 ## Chronology
 
@@ -85,8 +85,7 @@ Source-intake rule: every future OSCR or programmer session must record source i
 - `Raku x Raku Mishin` is retained as the base sewing-machine control path.
 - Kirby, Mario, Cut Shuu, and Moji are retained as embroidery/design-unit paths.
 - Game Boy Pocket failures for CGB-only software are negative controls.
-- Structured compatibility results are maintained in [`docs/izek_test_matrix.xlsx`](izek_test_matrix.xlsx).
-- Corresponding visual evidence is maintained in the [remote compatibility photo album](https://photos.app.goo.gl/GYaj7Pjwva9XXzap6).
+- `artifacts/izek_test_matrix.xlsx` is committed with SHA-256 `fdb941a3a6936b61b20042d2fc8c103e78ca737df4389bdbfad5c45dccebd9e0`.
 
 Reported software inventory:
 
@@ -296,11 +295,24 @@ Before relying on an external article, ROM catalog entry, emulator behavior, har
 | EVD-20260503-002 | Bobbin-winder spring-retention interpretation | inferred | authoritative manual confirmation missing |
 | EVD-20260804-009 | FunnyPlaying write/redump | observed/reported | awaiting artifacts |
 | EVD-20260804-010 | InsideGadgets CFI write/redump | observed/reported | awaiting artifacts |
-| EVD-20260804-011 | Sewing software boots/screenshots | observed/reported | workbook and remote album retained; exact hashes incomplete |
+| EVD-20260804-011 | Sewing software boots/screenshots | observed/reported | hashes and exact records missing |
 | EVD-20260804-012 | R4, GameYob, and GBARunner2 work | observed/reported | separate from IZEK evidence |
 | EVD-20260804-013 | R36S ROM recovery | observed/reported | side investigation |
 | EVD-20260804-014 | Kingston SD-card failure | observed/reported | cause unknown |
-| EVD-20260804-015 | Updated EZ-Flash Jr boots target set on stock GBC | observed/reported | exact matrix incomplete |
+| EVD-20260804-015 | Updated EZ-Flash Jr boots target set on stock GBC | observed/reported | exact matrix missing |
 | EVD-20260804-016 | EZ-Flash Jr fails on FPGA GBC but works on original hardware | observed/reported | exact error record missing |
 | EVD-20260804-017 | Six target images plus two controls booted on stock GBC | observed/reported | exact names and hashes incomplete |
-| EVD-20260804-018 | EZ-Flash Jr path caused IZEK zig-zag needle motion | observed/reported | repeat evidence incomplete |
+| EVD-20260804-018 | EZ-Flash Jr path caused IZEK zig-zag needle motion | observed/reported | experiment artifacts missing |
+| EVD-20260804-019 | Thread removal led to a thread-related halt | observed/reported | source and meaning unverified |
+| EVD-20260804-020 | End-to-end stock-GBC/EZ-Flash Jr/IZEK path functioned | inferred from reported observations | narrow configuration only |
+| EVD-20260804-021 | Valid threaded stitch | unverified | not established |
+| EVD-20260804-022 | Reproduction cartridges ordered | reported state | pending receipt and validation |
+| EVD-20260804-023 | Feed-dog slider notch broken | observed/reported | photographs and dimensions missing |
+| EVD-20260804-024 | Manual slider positioning engaged feed-dog lift path | observed/reported | durability and timing unverified |
+| EVD-20260804-025 | Installed needle physically broken | observed/reported | exact needle system unknown |
+| EVD-20260804-026 | Sew control caused ramp-stop-red behavior | observed/reported | fault source unresolved |
+| EVD-20260804-027 | Game Boy displayed upper-machine error graphic | observed/reported | exact frame and meaning unresolved |
+
+## Future experiment record
+
+Append a dated section containing objective and ID, hardware and software identities, safety constraints, procedure, raw observations, artifact paths and hashes, interpretation and alternatives, explicit claim boundary, and next action.
