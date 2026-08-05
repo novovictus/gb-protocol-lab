@@ -4,8 +4,8 @@ Status values: `owned`, `validated`, `validated/reported`, `planned`, `failed/re
 
 | ID | Item | Status | Project role | Notes |
 |---|---|---|---|---|
-| HW-001 | Singer IZEK 1500 | owned / mechanically impaired / validated-reported | Primary peripheral target | Acquired without original foot controller, cartridge, or console. Replacement controller produces motion. Stock GBC plus updated EZ-Flash Jr reportedly caused zig-zag needle motion and a thread-related halt. Feed-dog engagement slider has a broken cam-engagement notch; manual positioning restored downstream engagement. Valid threaded stitch not documented. |
-| HW-002 | Singer-compatible replacement foot controller | owned / validated-reported | Powered machine tests | Purchased from Amazon. Manufacturer, model, ratings, connector, and photographs still required. |
+| HW-001 | Singer IZEK 1500 | owned / mechanically impaired / validated-reported | Primary peripheral target | Acquired without original foot controller, cartridge, or console. Replacement controller produces motion. Stock GBC plus updated EZ-Flash Jr reportedly caused zig-zag needle motion and a thread-related halt. Feed-dog engagement slider has a broken cam-engagement notch; manual positioning restored downstream engagement. Valid threaded stitch not documented. Current project evidence does not establish EM-2000 attachment support. |
+| HW-002 | Singer-compatible replacement foot controller | owned / validated-reported / electrically uncharacterized | Powered machine tests | Purchased from Amazon. Manufacturer, model, ratings, connector, wiring, photographs, and safety comparison remain required. Do not assume it is unrelated to ramp-stop or red-indicator behavior. |
 | HW-003 | Original Game Boy Color | owned / validated-reported baseline | Ground-truth native cartridge and link tests | Completely stock unit reportedly booted the tested EZ-Flash Jr software set and communicated with the physical IZEK. Kirby on InsideGadgets reportedly reached upload and showed an error. Record exact model and board revision. |
 | HW-004 | Game Boy Pocket | owned / validated-reported for selected software | DMG-class compatibility and negative controls | Singer/IZEK software reportedly booted and uploaded successfully in one retained run. A later Kirby run produced a CGB-only rejection screen, expected for CGB-only software. |
 | HW-005 | FP-GBC | owned / mixed compatibility reported | FPGA comparison host | EZ-Flash Jr reportedly fails to boot. FunnyPlaying software reportedly booted, but Singer upload failed; Kirby reached upload and produced an error that may differ from original GBC. Record exact firmware/core. |
@@ -32,8 +32,14 @@ Status values: `owned`, `validated`, `validated/reported`, `planned`, `failed/re
 | HW-026 | Feed-dog engagement slider | damaged / manual engagement reported | Mechanical feed control | Cam-engagement notch is broken. External control cannot reliably engage the mechanism; manual positioning engaged the downstream feed-dog lift path. Durable repair, feed height, timing, and load behavior remain unverified. |
 | HW-027 | Correct bobbins from craft store | owned / observed-reported | Ordinary sewing setup | Exact class and package identity need photo and manual confirmation. Bobbin-winder fit behavior should be documented against manual instructions. |
 | HW-028 | 100% polyester all-purpose thread | owned / observed-reported | Ordinary sewing setup | Good for basic sewing bring-up, but exact brand, weight, and needle pairing should be recorded. |
-| HW-029 | Singer oil | owned / observed-reported | Mechanical service | Record product identity and service points used before operation. |
-| HW-030 | Needle multipack from craft store | owned / observed-reported | Replacement needle source | Exact system and size must be confirmed before powered sewing. |
+| HW-029 | Singer oil | owned / observed-reported | Mechanical service | Record product identity and use only manual-specified service points. Do not oil arbitrary holes, plastic surfaces, belts, electronics, or unknown pivots. |
+| HW-030 | Needle multipack from craft store | owned / observed-reported | Replacement needle source | Exact system and sizes must be confirmed before powered sewing. |
+| HW-031 | Denim needle set | owned / observed-reported | Heavy-material sewing accessory | Retain for denim, canvas, or heavy seams. Do not use as the default baseline needle unless the material requires it. |
+| HW-032 | Horizontal spool caps | missing / required | Upper-thread retention | Machine reportedly lacked spool caps. Correct cap size and fit are required for stable horizontal-spool use. Record the spool-pin geometry and selected cap. |
+| HW-033 | Auxiliary vertical spool post | present but fit unresolved / reported | Alternate upper-thread support | Available post reportedly did not fit the expected opening or the selected spool arrangement. Photograph dimensions and verify the intended mounting point. |
+| HW-034 | Standalone single-spool thread stand | considered | Upper-thread workaround | Acceptable non-invasive workaround if the onboard horizontal or vertical spool path cannot retain and feed the selected spool cleanly. |
+| HW-035 | Jaguar JN-2000 / nuotto | not owned / prior-art model boundary | Future embroidery-capable comparison target | Treated as the embroidery-capable machine path associated with EM-2000 in prior art. Exact project claim requires pinned source or project-owned documentation. |
+| HW-036 | Jaguar EM-2000 embroidery unit | not owned / deferred target | Future capability-presence and design-extraction research | Accessory associated with JN-2000 embroidery software paths. No spoofing, motor control, or hoop-motion work until the base protocol gate is satisfied. |
 
 ## Immediate mechanical dependency
 
@@ -44,8 +50,9 @@ Before further powered or protocol-driven sewing tests:
 - implement a reversible retention or durable repair;
 - identify and install the correct needle system and orientation;
 - verify unobstructed handwheel rotation;
-- confirm upper thread, bobbin, threading, tension, presser-foot state, fabric, and stabilizer;
-- produce and document one ordinary valid stitch.
+- identify the replacement foot controller by model, rating, connector, and wiring;
+- confirm upper thread, bobbin, bobbin-winder seating, spool support, threading, tension, presser-foot state, fabric, and stabilizer;
+- produce and document one ordinary valid straight stitch.
 
 ## Fixture requirements
 
