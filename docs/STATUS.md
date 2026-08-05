@@ -14,7 +14,18 @@ Repository facts from the current default branch:
 
 - Canonical documentation exists under `README.md`, `docs/NOTEBOOK.md`, `docs/STATUS.md`, `docs/REFERENCES.md`, and `hardware/INVENTORY.md`.
 - `artifacts/izek_test_matrix.xlsx` is committed with SHA-256 `fdb941a3a6936b61b20042d2fc8c103e78ca737df4389bdbfad5c45dccebd9e0`.
+- A dated photo-backed evidence index is committed under `artifacts/2026-05-03-compatibility-evidence/`.
+- The committed contact-sheet derivative has SHA-256 `631f990bdf22d4e80851b35b48505fd7c77c2358dbf695ec26bb4fced5e023ea`.
+- The evidence manifest records SHA-256 hashes for all sixteen original source photos and identifies an alternate workbook revision with SHA-256 `a1bb3aa68c7cec801a31c387377345be2a513a7677a2c83d6f8c18c97cc86d9d`.
+- The alternate workbook differs from the previously committed root workbook. Both identities are preserved; neither silently supersedes the other.
 - No commercial ROM, proprietary firmware, physical-bus capture, or protocol implementation is committed.
+
+Artifact-backed compatibility observations:
+
+- Original GBA and original GBC visibly reached software prompt, machine-check, or embroidery-unit requirement screens for the tested titles.
+- Game Boy Pocket visibly displayed the Game Boy Color-only rejection screen for the tested CGB-only titles.
+- Original GBC and FP-GBC visibly reached different STOP/error states in the retained comparison images.
+- These images establish screen states only. They do not establish completed upload, machine motion, stitch formation, electrical equivalence, timing equivalence, or the exact meaning of every screen.
 
 Results retained as `observed/reported` unless later backed by committed evidence:
 
@@ -26,13 +37,11 @@ Results retained as `observed/reported` unless later backed by committed evidenc
 - The Game Boy software displayed an error graphic pointing toward the upper area of the machine during the same general troubleshooting period.
 - These mechanical and UI observations do not establish a direct thread-presence sensor, tension sensor, motor-overload code, position-sensor fault, or any specific protocol status.
 - Correct bobbins, 100% polyester all-purpose thread, a needle pack, and Singer oil were later obtained from a craft store. Exact package identities and the authoritative needle system still need evidence.
-- An updated EZ-Flash Jr booted the tested software set on a stock Game Boy Color.
-- Stock GBC plus EZ-Flash Jr plus Singer/IZEK software produced visible lateral needle motion and later halted with a thread-related error.
-- A Singer/IZEK image was written to and redumped from a FunnyPlaying EverSave cart.
-- The same FunnyPlaying image reportedly booted on original GBC, Game Boy Pocket, and FP-GBC; machine upload reportedly succeeded from GBC and Pocket but failed from FP-GBC. This chronology needs reconstruction by exact ROM, host, and run.
-- `Jaguar Mishin Sashi Senyou Soft - Kirby Family (Japan) (Proto)` was written to and redumped from an InsideGadgets MBC5 2 MiB / 32 KiB FRAM cart using OSCR `CFI Repro`, `WE=WR`, and M29F160F-compatible behavior.
-- Kirby reportedly booted on original GBA but produced an immediate upload error. A later Pocket run produced a CGB-only rejection screen. Original GBC and FP-GBC reached upload and displayed errors that may not be identical.
-- EZ-Flash Jr failed to boot on FP-GBC.
+- An updated EZ-Flash Jr reportedly booted the tested software set on a stock Game Boy Color.
+- Stock GBC plus EZ-Flash Jr plus Singer/IZEK software reportedly produced visible lateral needle motion and later halted with a thread-related error.
+- A Singer/IZEK image was reportedly written to and redumped from a FunnyPlaying EverSave cart.
+- `Jaguar Mishin Sashi Senyou Soft - Kirby Family (Japan) (Proto)` was reportedly written to and redumped from an InsideGadgets MBC5 2 MiB / 32 KiB FRAM cart using OSCR `CFI Repro`, `WE=WR`, and M29F160F-compatible behavior.
+- EZ-Flash Jr reportedly failed to boot on FP-GBC.
 - DS-family side work revived an R4 SDHC with period firmware and made GameYob/GBARunner2 operational. That path is separate from native GB/GBC IZEK protocol evidence.
 
 ## Layered result model
@@ -61,6 +70,7 @@ The earlier statement that no flash-cart communication with the physical IZEK ha
 Not established:
 
 - a valid threaded stitch or embroidery result;
+- completed upload for the photo-backed 2026-05-03 compatibility runs;
 - correct feed height, feed timing, stitch length, or durable feed-dog repair;
 - the specific cause of the ramp-stop-red indication;
 - whether the upper-machine graphic represents threading, spool routing, take-up, tension, or another machine condition;
@@ -74,31 +84,31 @@ Not established:
 
 ## Blocking evidence gaps
 
-1. No photographs or dimensions of the broken feed-dog slider notch, engaged/disengaged positions, or durable repair.
-2. No photograph or authoritative identification of the broken needle or validated replacement needle system/orientation.
-3. No synchronized record of machine motion, red-indicator cadence, Game Boy screen, mechanical state, threading state, and exact sequence for the fault run.
-4. No row-level mapping from workbook entries to exact experiment and evidence IDs.
-5. No exact chronology resolving differing Pocket, GBA, GBC, and FP-GBC observations across Singer and Kirby runs.
-6. No exact ROM hashes, cartridge revisions, programmed-image verification, host board revisions, firmware/core versions, cable identities, machine state, error text, timestamps, repetition counts, or artifact hashes for the retained compatibility runs.
-7. No documented ordinary threaded straight-stitch baseline.
-8. No complete OSCR logs and source/redump hash pairs.
-9. No protected passive breakout, voltage survey, or project-generated raw capture.
-10. No pinned GBE+ commit, files, symbols, and license extraction for each code-derived claim.
+1. The original sixteen photos are hash-identified, but only the contact-sheet derivative is committed through the current repository connector.
+2. No row-level mapping from every source photo and workbook row to exact experiment and evidence IDs.
+3. No exact chronology resolving differing Pocket, GBA, GBC, and FP-GBC observations across Singer and Kirby runs.
+4. No exact ROM hashes, cartridge revisions, programmed-image verification, host board revisions, firmware/core versions, cable identities, machine state, error text, timestamps, repetition counts, or artifact hashes for the retained compatibility runs.
+5. No photographs or dimensions of the broken feed-dog slider notch, engaged/disengaged positions, or durable repair.
+6. No photograph or authoritative identification of the broken needle or validated replacement needle system/orientation.
+7. No synchronized record of machine motion, red-indicator cadence, Game Boy screen, mechanical state, threading state, and exact sequence for the fault run.
+8. No documented ordinary threaded straight-stitch baseline.
+9. No complete OSCR logs and source/redump hash pairs.
+10. No protected passive breakout, voltage survey, or project-generated raw capture.
+11. No pinned GBE+ commit, files, symbols, and license extraction for each code-derived claim.
 
 ## Immediate actions
 
-1. Photograph the broken slider/notch, measure it, record engaged and disengaged positions, and document a reversible retention or durable repair.
-2. Identify the correct needle system from an authoritative source, install a known-good needle in the correct orientation, and verify unobstructed handwheel rotation before powered operation.
-3. Document ordinary sewing setup: bobbin type, upper thread route, bobbin winding, presser-foot state, feed-dog state, fabric, stabilizer, and tension settings.
-4. Produce and document one ordinary valid stitch before interpreting protocol-driven motion as sewing success.
-5. Repeat the ramp-stop-red behavior only after the needle and feed mechanism are corrected. Record synchronized video of machine motion, indicator cadence, Game Boy screen, thread route, bobbin, presser foot, and exact action.
-6. Capture the exact upper-machine error graphic, software filename and SHA-256, loader configuration, machine indicator state, and immediately preceding action.
-7. Reconstruct each compatibility run as a separate experiment record, including the Singer/EZ-Flash Jr path, Singer/FunnyPlaying path, and Kirby/InsideGadgets path.
-8. Preserve the workbook unchanged and create a redistribution-safe CSV or Markdown derivative linked to row-level evidence IDs.
-9. Retest one exact image/cart/host combination at a time, recording machine power state, attachments, thread state, selected operation, exact screen text, and repetition count.
-10. Reproduce OSCR reads and both write/redump paths with complete logs and SHA-256 comparisons.
-11. Validate a protected passive fixture and voltage compatibility before active hardware is connected.
-12. Pin GBE+ commit and source locations before using implementation details.
+1. Map each original photo hash and workbook row to a separate experiment/evidence record.
+2. Preserve both workbook revisions and document their chronology and content differences.
+3. Retest one exact image/cart/host combination at a time, recording machine power state, attachments, thread state, selected operation, exact screen text, and repetition count.
+4. Keep boot, UI, link initialization, upload start, upload completion, physical motion, and stitch formation as separate fields.
+5. Photograph the broken slider/notch, measure it, record engaged and disengaged positions, and document a reversible retention or durable repair.
+6. Identify the correct needle system from an authoritative source, install a known-good needle in the correct orientation, and verify unobstructed handwheel rotation before powered operation.
+7. Document ordinary sewing setup: bobbin type, upper thread route, bobbin winding, presser-foot state, feed-dog state, fabric, stabilizer, and tension settings.
+8. Produce and document one ordinary valid stitch before interpreting protocol-driven motion as sewing success.
+9. Reproduce OSCR reads and both write/redump paths with complete logs and SHA-256 comparisons.
+10. Validate a protected passive fixture and voltage compatibility before active hardware is connected.
+11. Pin GBE+ commit and source locations before using implementation details.
 
 ## Protocol implementation gate
 
