@@ -1,22 +1,23 @@
-# 2026-05-03 Compatibility Evidence Manifest
+# 2026-05-03 Compatibility Evidence
 
-Source package supplied 2026-08-04. The original photo files were reviewed visually and their SHA-256 hashes were verified from the supplied manifest. A contact-sheet derivative is committed beside this manifest because the repository connector could not ingest the complete 10 MB original evidence bundle directly.
+## Remote album
 
-## Committed derivative
+Original dated photographs are maintained in the project evidence album:
 
-- `contact-sheet.jpg`
-- SHA-256: `631f990bdf22d4e80851b35b48505fd7c77c2358dbf695ec26bb4fced5e023ea`
-- Purpose: browseable overview of all sixteen dated source photos with filenames.
-- Status: derived visual index, not a substitute for the original files.
+- https://photos.app.goo.gl/GYaj7Pjwva9XXzap6
 
-## Alternate workbook revision
+The album is the browseable visual source. The hashes below identify the reviewed original files independently of the album host.
 
-The supplied dated workbook differs from the previously committed `artifacts/izek_test_matrix.xlsx`.
+## Workbook revisions
 
-- supplied path: `artifacts/2026-05-03-compatibility-workbook/izek_test_matrix.xlsx`
-- supplied SHA-256: `a1bb3aa68c7cec801a31c387377345be2a513a7677a2c83d6f8c18c97cc86d9d`
-- existing repository workbook SHA-256: `fdb941a3a6936b61b20042d2fc8c103e78ca737df4389bdbfad5c45dccebd9e0`
-- status: preserve both identities; do not silently replace one revision with the other.
+The dated compatibility workbook and the repository workbook have different hashes and must remain distinct revisions.
+
+- dated workbook path: `artifacts/2026-05-03-compatibility-workbook/izek_test_matrix.xlsx`
+- dated workbook SHA-256: `a1bb3aa68c7cec801a31c387377345be2a513a7677a2c83d6f8c18c97cc86d9d`
+- repository workbook path: `artifacts/izek_test_matrix.xlsx`
+- repository workbook SHA-256: `fdb941a3a6936b61b20042d2fc8c103e78ca737df4389bdbfad5c45dccebd9e0`
+
+Do not silently replace either revision with the other.
 
 ## Original photo hashes
 
@@ -39,12 +40,12 @@ The supplied dated workbook differs from the previously committed `artifacts/ize
 | `GBP Shuu.jpg` | 559185 | `edabe79cdde90b640da63070e32f1ed0707025b0bd4c0f88dd1ff84daedffeef` |
 | `GBP.jpg` | 795514 | `e187ee964a6b81f6a22904a03174f5b64492cbd07a098c50a2dec6b72e695f19` |
 
-## What the photos support
+## Supported observations
 
-The reviewed images visibly support these narrow claims:
+The photographs support these narrow observations:
 
 - Original GBA and original GBC reached software prompt, machine-check, or embroidery-unit requirement screens for the tested titles.
 - Game Boy Pocket displayed the Game Boy Color-only rejection screen for the tested CGB-only titles.
 - Original GBC and FP-GBC reached visibly different STOP/error states in the retained comparison images.
 
-They do not by themselves establish completed upload, protocol equivalence, stitch formation, electrical compatibility, timing equivalence, or the exact meaning of every translated screen.
+The photographs do not establish completed upload, protocol equivalence, stitch formation, electrical compatibility, timing equivalence, or the exact meaning of every translated screen.
