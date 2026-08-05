@@ -1,6 +1,6 @@
 # Project Status
 
-Last updated: 2026-08-04
+Last updated: 2026-08-05
 
 ## Phase
 
@@ -36,13 +36,26 @@ Results retained as `observed/reported` unless later backed by committed evidenc
 - During the unresolved bring-up state, pressing sew reportedly caused the machine to accelerate, stop, and blink red at the switch or indicator.
 - The Game Boy software displayed an error graphic pointing toward the upper area of the machine during the same general troubleshooting period.
 - These mechanical and UI observations do not establish a direct thread-presence sensor, tension sensor, motor-overload code, position-sensor fault, or any specific protocol status.
-- Correct bobbins, 100% polyester all-purpose thread, a needle pack, and Singer oil were later obtained from a craft store. Exact package identities and the authoritative needle system still need evidence.
+- Correct bobbins, 100% polyester all-purpose thread, a needle assortment, denim needles, and Singer oil were obtained locally after returning the Amazon starter supplies. Exact package identities and authoritative compatibility remain unverified.
+- The machine reportedly lacked spool caps and other loose accessories. Correct horizontal-spool retention is therefore an unresolved prerequisite; a standalone thread stand remains a possible workaround if the onboard spool path cannot feed cleanly.
+- The generic replacement foot controller remains uncharacterized by model, rating, connector wiring, and electrical equivalence. It must not be assumed unrelated to ramp-stop or red-indicator behavior.
 - An updated EZ-Flash Jr reportedly booted the tested software set on a stock Game Boy Color.
 - Stock GBC plus EZ-Flash Jr plus Singer/IZEK software reportedly produced visible lateral needle motion and later halted with a thread-related error.
 - A Singer/IZEK image was reportedly written to and redumped from a FunnyPlaying EverSave cart.
 - `Jaguar Mishin Sashi Senyou Soft - Kirby Family (Japan) (Proto)` was reportedly written to and redumped from an InsideGadgets MBC5 2 MiB / 32 KiB FRAM cart using OSCR `CFI Repro`, `WE=WR`, and M29F160F-compatible behavior.
 - EZ-Flash Jr reportedly failed to boot on FP-GBC.
 - DS-family side work revived an R4 SDHC with period firmware and made GameYob/GBARunner2 operational. That path is separate from native GB/GBC IZEK protocol evidence.
+
+## Model and accessory boundary
+
+Current project documentation must preserve these distinctions until project-owned manuals, catalogs, hardware, or captures verify them:
+
+- Singer IZEK 1500 is the project-owned Western base sewing-machine target. Current project evidence does not establish EM-2000 attachment support.
+- Jaguar JN-100 / nu-yell is treated as the analogous Japanese base-machine path.
+- Jaguar JN-2000 / nuotto is the embroidery-capable path associated in prior art with the EM-2000 embroidery unit.
+- Jaguar EM-2000 is an embroidery arm/accessory, not interchangeable with the base IZEK/JN-100 sewing path.
+
+An embroidery-software screen requesting or depicting the embroidery unit is compatible with missing JN-2000/EM-2000 capability. It does not prove that the project-owned IZEK accepts that unit, that the cartridge is defective, or that any exact protocol status byte has been identified.
 
 ## Layered result model
 
@@ -72,9 +85,12 @@ Not established:
 - a valid threaded stitch or embroidery result;
 - completed upload for the photo-backed 2026-05-03 compatibility runs;
 - correct feed height, feed timing, stitch length, or durable feed-dog repair;
+- correct spool support, spool-cap fit, or stable upper-thread feed;
+- electrical equivalence of the generic replacement foot controller;
 - the specific cause of the ramp-stop-red indication;
 - whether the upper-machine graphic represents threading, spool routing, take-up, tension, or another machine condition;
 - direct sensing of missing thread or thread tension;
+- EM-2000 compatibility with the Singer IZEK 1500;
 - electrical equivalence among original, EZ-Flash Jr, FunnyPlaying, and InsideGadgets cartridges;
 - equivalence among stock GBC, Pocket, GBA CGB mode, SGB2, FP-GBC, MiSTer, Analogue Pocket, or Chromatic;
 - connector pinout, voltage levels, idle states, signaling direction, or clock ownership;
@@ -90,11 +106,14 @@ Not established:
 4. No exact ROM hashes, cartridge revisions, programmed-image verification, host board revisions, firmware/core versions, cable identities, machine state, error text, timestamps, repetition counts, or artifact hashes for the retained compatibility runs.
 5. No photographs or dimensions of the broken feed-dog slider notch, engaged/disengaged positions, or durable repair.
 6. No photograph or authoritative identification of the broken needle or validated replacement needle system/orientation.
-7. No synchronized record of machine motion, red-indicator cadence, Game Boy screen, mechanical state, threading state, and exact sequence for the fault run.
-8. No documented ordinary threaded straight-stitch baseline.
-9. No complete OSCR logs and source/redump hash pairs.
-10. No protected passive breakout, voltage survey, or project-generated raw capture.
-11. No pinned GBE+ commit, files, symbols, and license extraction for each code-derived claim.
+7. No photos or authoritative manual confirmation for bobbin class, bobbin-winder seating, spool-cap requirements, spool-pin setup, thread path, or oiling points.
+8. No model, rating, connector pinout, wiring, or safety comparison for the generic foot controller.
+9. No synchronized record of machine motion, red-indicator cadence, Game Boy screen, mechanical state, threading state, and exact sequence for the fault run.
+10. No documented ordinary threaded straight-stitch baseline.
+11. No complete OSCR logs and source/redump hash pairs.
+12. No protected passive breakout, voltage survey, or project-generated raw capture.
+13. No pinned GBE+ commit, files, symbols, and license extraction for each code-derived claim.
+14. No pinned prior-art section or project-owned source establishing the JN-2000/EM-2000 model relationship.
 
 ## Immediate actions
 
@@ -103,16 +122,30 @@ Not established:
 3. Retest one exact image/cart/host combination at a time, recording machine power state, attachments, thread state, selected operation, exact screen text, and repetition count.
 4. Keep boot, UI, link initialization, upload start, upload completion, physical motion, and stitch formation as separate fields.
 5. Photograph the broken slider/notch, measure it, record engaged and disengaged positions, and document a reversible retention or durable repair.
-6. Identify the correct needle system from an authoritative source, install a known-good needle in the correct orientation, and verify unobstructed handwheel rotation before powered operation.
-7. Document ordinary sewing setup: bobbin type, upper thread route, bobbin winding, presser-foot state, feed-dog state, fabric, stabilizer, and tension settings.
-8. Produce and document one ordinary valid stitch before interpreting protocol-driven motion as sewing success.
-9. Reproduce OSCR reads and both write/redump paths with complete logs and SHA-256 comparisons.
-10. Validate a protected passive fixture and voltage compatibility before active hardware is connected.
-11. Pin GBE+ commit and source locations before using implementation details.
+6. Identify the correct needle system from an authoritative source, install a known-good universal household needle in the correct orientation, and verify unobstructed handwheel rotation before powered operation.
+7. Document ordinary sewing setup: exact bobbin type, bobbin-winder behavior, upper thread route, spool support, presser-foot state, feed-dog state, fabric, stabilizer, and tension settings.
+8. Identify the generic foot controller by model, rating, connector, wiring, and safety characteristics before attributing powered faults solely to the machine.
+9. Produce and document one ordinary valid straight stitch before interpreting protocol-driven motion as sewing success.
+10. Reproduce OSCR reads and both write/redump paths with complete logs and SHA-256 comparisons.
+11. Validate a protected passive fixture and voltage compatibility before active hardware is connected.
+12. Pin GBE+ commit and source locations before using implementation details.
+13. Pin the Shonumi/manual/catalog evidence for JN-100, JN-2000, and EM-2000 model roles.
+
+## EM-2000 deferral decision
+
+EM-2000 spoofing and embroidery-design dumping are deferred. The required sequence is:
+
+1. restore ordinary Singer IZEK sewing operation;
+2. validate the normal Game Boy/software/machine path on real hardware;
+3. build and validate a passive capture fixture;
+4. capture the base sewing-machine handshake, one normal path, and one controlled fault or blocked path;
+5. only then define the minimum JN-2000/EM-2000 presence or capability response needed for design-extraction research.
+
+The initial future goal, when the gate is satisfied, is presence/capability/status emulation sufficient to observe or extract design data. It is not motor control, hoop motion, or physical embroidery.
 
 ## Protocol implementation gate
 
-No active drive, replay, endpoint emulator, or firmware implementation until all of the following are documented:
+No active drive, replay, endpoint emulator, EM-2000 spoofing, or firmware implementation until all of the following are documented:
 
 - ordinary machine operation and at least one valid stitch;
 - exact software, cartridge, host, cable, machine, and firmware identities;
@@ -120,6 +153,7 @@ No active drive, replay, endpoint emulator, or firmware implementation until all
 - protected passive measurement fixture;
 - idle-state voltage survey;
 - immutable raw capture;
+- one captured normal base-machine path and one controlled fault or blocked path;
 - a narrowly stated measured question;
 - hazard/failback plan;
 - prior-art provenance and license boundaries.
