@@ -20,6 +20,8 @@ Status values: `owned`, `validated`, `validated/reported`, `planned`, or `unknow
 | HW-014 | Kingston 32 GB SD card | failed/reported | R4 failure investigation | Reportedly failed during R4 revival. Preserve card and adapter; do not assign cause without media or electrical diagnostics. |
 | HW-015 | Allwinner-based R36S clone | owned / partial recovery | Side preservation source | ROM files reportedly recovered; alternate operating-system installation unsuccessful. |
 | HW-016 | Damaged Game Boy Advance SP | owned / condition unknown | Candidate link connector donor or repair project | Dog-damaged. Assess board, connector continuity, repair potential, and non-destructive alternatives before harvesting. |
+| HW-017 | Protected passive link breakout | planned | First physical capture fixture | Must expose console and machine-side conductors without active drive. Record connector provenance, schematic, component values, continuity, isolation, grounding, strain relief, and photographs. |
+| HW-018 | High-impedance DMM or scope probes | not established | Idle-state voltage survey | Required before attaching 3.3 V-only instrumentation. Record instrument identity, probe impedance, coupling, reference point, and uncertainty. |
 
 ## Sewing setup still required
 
@@ -34,9 +36,25 @@ Status values: `owned`, `validated`, `validated/reported`, `planned`, or `unknow
 
 Project history also records donor GB/GBA hardware, soldering and rework tools, a GQ-4X programmer, and scrap cartridges. These are capabilities, not completed fixtures.
 
-Any breakout or adapter must have a schematic, continuity measurements, protection details, and photographs before use on rare hardware.
-
 For the damaged GBA SP, connector harvesting should wait until the board is photographed, repair potential is assessed, continuity is checked, pinout and voltage are independently verified, and strain relief and keyed orientation are designed.
+
+## Passive breakout requirements
+
+The first breakout revision should be passive by default and fail open rather than drive the bus. Before connection to rare hardware, document:
+
+- connector source and orientation;
+- one-to-one conductor map derived from continuity, not assumed pin numbering;
+- direct-path resistance for every conductor;
+- absence of adjacent and cross-conductor shorts;
+- a common reference path only when verified appropriate;
+- test points on every relevant conductor;
+- default isolation of any later active branch;
+- optional series resistance or other protection, with values and rationale recorded;
+- keyed connections, strain relief, labels, and enclosure state;
+- unpowered continuity and isolation results;
+- powered idle-state voltage results before analyzer or microcontroller attachment.
+
+Do not attach a 3.3 V-only analyzer, microcontroller, or active endpoint until voltage compatibility is measured. Do not connect an active branch until independent output-enable control, failback, and no-contention behavior are demonstrated.
 
 ## New-item template
 
