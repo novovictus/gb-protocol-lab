@@ -4,87 +4,56 @@ Last updated: 2026-08-04
 
 ## Phase
 
-Physical baseline validation, cartridge workflow documentation, intended-hardware compatibility testing, and prior-art mapping.
+Physical baseline validation, deterministic cartridge workflow verification, intended-hardware compatibility testing, and prior-art mapping.
 
-Protocol implementation is intentionally deferred until the machine and software path are validated and a project-generated capture exists.
+Protocol implementation remains deferred until the machine and software path are validated and a project-generated capture exists.
 
-## Active research target
+## Current state
 
-Singer IZEK / Jaguar JN Game Boy sewing-machine interface.
+Artifact-backed repository facts:
 
-Related systems retained in scope:
-
-- Singer IZEK 1500
-- Jaguar JN-100
-- Jaguar JN-2000
-
-## Current project state
-
-### Artifact-backed repository facts
-
-- The repository has an evidence-oriented notebook structure.
-- Shonumi's article and its 2026-03-07 Internet Archive snapshot are recorded.
+- Shonumi's article and its 2026-03-07 archive are recorded.
 - GBE+ is recorded as relevant GPLv2 prior art.
+- The project now has a compact canonical notebook and inventory structure.
 
-### Bench results retained from project history
+Results retained as `observed/reported`:
 
-The following are `observed/reported`, not yet fully artifact-backed in this repository:
+- OSCR was assembled; Game Boy ROM and save reads worked; at least one output was usable in an emulator.
+- A replacement controller powered the Singer IZEK and produced basic machine motion.
+- A Singer/IZEK image was reportedly written to and redumped from a FunnyPlaying EverSave cart.
+- The Kirby sewing title was reportedly written to and redumped from an InsideGadgets MBC5 2 MiB / 32 KiB FRAM cart.
+- The successful InsideGadgets path reportedly used OSCR `CFI Repro`, `WE=WR`, and M29F160F-compatible behavior; generic `29F Repro` was not the successful path.
+- Original Game Boy hardware is the preferred behavioral baseline; EZ-Flash Jr reportedly differed between original and FPGA hardware.
+- The external workbook `izek_test_matrix_canonical_saved_2026-05-03.xlsx` reportedly contains the canonical software compatibility matrix.
 
-- OSCR hardware was built successfully.
-- Game Boy ROM dumping works.
-- Game Boy save dumping works.
-- A dumped ROM/save workflow was validated in an emulator.
-- A replacement foot controller arrived and was tested with the Singer IZEK.
-- The machine demonstrated basic powered sewing-machine functionality.
+## Claim boundary
 
-The last item does not mean that a threaded stitch was produced. Correct threading, bobbin type, spool setup, tension, and end-to-end sewing operation remain unvalidated in the notebook.
+Not established:
 
-### Cartridge and execution work retained from project history
+- a valid threaded stitch;
+- flash-cart communication with the physical IZEK;
+- connector pinout or voltage levels;
+- signaling direction or clock ownership;
+- packet format, commands, timing, status values, or stitch encoding;
+- model equivalence among Singer IZEK 1500, Jaguar JN-100, and Jaguar JN-2000;
+- independent reproduction of Shonumi's protocol findings.
 
-- Original Game Boy hardware is the preferred behavioral baseline.
-- EZ-Flash Jr reportedly worked on original hardware after a firmware update and failed on an FPGA GBC.
-- InsideGadgets and FunnyPlaying rewritable cartridges were selected or exercised as deterministic cartridge targets.
-- A canonical test matrix existed outside this repository and classified `Raku x Raku - Mishin` as the base sewing-machine control path.
-- Kirby, Mario, Cut Shuu, and Moji titles were classified as embroidery/design-unit paths rather than simple link failures.
-- Game Boy Pocket results for CGB-only titles were treated as expected negative controls.
+## Blockers
 
-These points require import of the canonical matrix, exact firmware versions, hashes, and test records before promotion beyond `observed/reported`.
+1. No documented straight-stitch test.
+2. No committed OSCR logs, hashes, version records, or cartridge photographs.
+3. No imported or hashed safe derivative of the canonical compatibility workbook.
+4. No documented flash-cart test with the physical IZEK.
+5. No claim-level map of Shonumi's article and GBE+ symbols.
+6. No protected passive breakout or project-generated electrical capture.
 
-## Current claim boundary
+## Immediate actions
 
-No project-generated IZEK communication capture, voltage measurement, decoded packet, replay trace, endpoint emulator, or independently verified protocol implementation is present.
-
-The repository therefore makes no independent technical claim about:
-
-- connector pinout;
-- voltage levels;
-- signaling direction;
-- serial clock ownership;
-- packet format;
-- command semantics;
-- timing;
-- status values;
-- coordinate or stitch encoding;
-- behavioral differences among machine models.
-
-## Current blockers
-
-1. The machine has not been documented forming a valid stitch.
-2. The original cartridge is not recorded as present.
-3. Flash-cart operation with the physical IZEK is not yet documented.
-4. Existing successful dump and cartridge tests lack committed hashes and logs.
-5. Prior-art protocol details have not been mapped claim-by-claim to article sections or GBE+ symbols.
-6. No passive electrical capture setup has been documented or executed.
-
-## Immediate next actions
-
-1. Confirm the correct needle, upper thread, bobbin class, bobbin orientation, and threading path.
-2. Record one repeatable straight-stitch test on scrap fabric.
-3. Inventory the Game Boy, flash carts, OSCR revision, firmware, and host software versions.
-4. Reproduce one ROM dump and one save dump with command logs and hashes.
-5. Import or reconstruct the canonical software/cart compatibility matrix without committing ROM content.
-6. Test the selected native GB/GBC flash cart on original Game Boy hardware, then with the IZEK.
-7. Capture machine behavior, prompts, and failure modes before attaching a logic analyzer.
-8. Map Shonumi article statements and GBE+ behavior into evidence records.
-9. Design and document a protected passive link breakout.
-10. Implement code only after a measured protocol question requires it.
+1. Record one repeatable straight-stitch test with both sides photographed.
+2. Inventory exact console, cartridge, OSCR, firmware, and host-software revisions.
+3. Reproduce ROM/save reads and both write/redump paths with complete logs and SHA-256 hashes.
+4. Import a redistribution-safe compatibility-matrix derivative and hash the source workbook.
+5. Boot exact redumped images on original hardware.
+6. Test the preferred deterministic cartridge with the physical IZEK and record prompts and failure modes.
+7. Map prior-art claims to article sections and pinned GBE+ files and symbols.
+8. Design and validate a protected passive link breakout before active replay or emulation.
