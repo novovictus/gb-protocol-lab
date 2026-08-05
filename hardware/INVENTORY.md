@@ -4,7 +4,7 @@ Status values: `owned`, `validated`, `validated/reported`, `planned`, or `unknow
 
 | ID | Item | Status | Project role | Notes |
 |---|---|---|---|---|
-| HW-001 | Singer IZEK 1500 | owned / validated-reported | Primary peripheral target | Acquired without original foot controller, cartridge, or console. Replacement controller produces motion. Stock GBC plus updated EZ-Flash Jr reportedly caused zig-zag needle motion and a thread-related halt. Valid threaded stitch not yet documented. |
+| HW-001 | Singer IZEK 1500 | owned / mechanically impaired / validated-reported | Primary peripheral target | Acquired without original foot controller, cartridge, or console. Replacement controller produces motion. Stock GBC plus updated EZ-Flash Jr reportedly caused zig-zag needle motion and a thread-related halt. Feed-dog engagement slider has a broken cam-engagement notch; manual positioning restored downstream engagement. Valid threaded stitch not documented. |
 | HW-002 | Singer-compatible replacement foot controller | owned / validated-reported | Powered machine tests | Purchased from Amazon. Manufacturer, model, ratings, connector, and photographs still required. |
 | HW-003 | Original Game Boy Color | owned / validated-reported baseline | Ground-truth native cartridge and link tests | Completely stock unit reportedly booted the tested EZ-Flash Jr software set and communicated with the physical IZEK. Record exact model and board revision. |
 | HW-004 | Game Boy Pocket | owned / validated-reported for selected software | DMG-class compatibility and negative controls | Singer/IZEK software reportedly booted and uploaded successfully in one retained run. A later Kirby run produced an immediate error. CGB-only failures remain expected controls. |
@@ -28,10 +28,20 @@ Status values: `owned`, `validated`, `validated/reported`, `planned`, or `unknow
 | HW-022 | SFC/SNES plus Super Game Boy 2 | considered | Official DMG/SGB-class host with link port | Not CGB-equivalent. `0x80` software may be testable; `0xC0` software is an expected boot failure. Genuine and clone hosts are separate classes. |
 | HW-023 | Analogue Pocket | possible acquisition | Separate commercial FPGA host class | No project result. Test boot, UI, physical link, and machine communication separately. |
 | HW-024 | ModRetro Chromatic | possible acquisition | Separate modern GBC-class host | No project result. Verify connector and electrical behavior before machine use. |
+| HW-025 | Broken installed sewing needle | observed/reported / replace | Mechanical bring-up fault | Needle was found physically broken while locating the eye. It is unsuitable for valid sewing tests. Preserve or photograph before disposal and identify the authoritative replacement needle system and orientation. |
+| HW-026 | Feed-dog engagement slider | damaged / manual engagement reported | Mechanical feed control | Cam-engagement notch is broken. External control cannot reliably engage the mechanism; manual positioning engaged the downstream feed-dog lift path. Durable repair, feed height, timing, and load behavior remain unverified. |
 
 ## Immediate mechanical dependency
 
-Correct ordinary sewing-machine operation must be established before repeated stitch experiments: confirmed needle, thread, bobbin, threading, tension, presser-foot state, fabric, stabilizer, and documented valid stitch.
+Before further powered or protocol-driven sewing tests:
+
+- photograph and measure the broken feed-dog slider/notch;
+- document engaged and disengaged positions;
+- implement a reversible retention or durable repair;
+- identify and install the correct needle system and orientation;
+- verify unobstructed handwheel rotation;
+- confirm upper thread, bobbin, threading, tension, presser-foot state, fabric, and stabilizer;
+- produce and document one ordinary valid stitch.
 
 ## Fixture requirements
 
