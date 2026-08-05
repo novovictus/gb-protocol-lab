@@ -6,7 +6,7 @@ Canonical record for project history, evidence, decisions, and reconstructed exp
 
 - `observed`: directly supported by committed project artifacts
 - `observed/reported`: direct operator observation without complete committed artifacts
-- `reproduced`: external behavior independently repeated with project evidence
+- `reproduced`: prior behavior independently repeated with project evidence
 - `inferred`: interpretation drawn from observations
 - `prior-art`: external published claim
 - `code-derived`: behavior identified from an implementation
@@ -53,7 +53,7 @@ A replacement Singer-compatible foot controller purchased from Amazon powered th
 
 Classification: `observed/reported`.
 
-This does not establish correct threading, bobbin setup, tension, fabric feed, lockstitch formation, sustained operation, controller equivalence, or Game Boy communication.
+This did not establish correct threading, bobbin setup, tension, fabric feed, lockstitch formation, sustained operation, controller equivalence, or Game Boy communication.
 
 #### Rewritable-cartridge workflows
 
@@ -70,12 +70,12 @@ Classification: write/redump results are `observed/reported`; diagnostic interpr
 #### Cartridge compatibility and software inventory
 
 - Original Game Boy hardware is the behavioral baseline.
-- EZ-Flash Jr reportedly worked after firmware update on original hardware and failed on an FPGA GBC.
+- EZ-Flash Jr reportedly worked after firmware update on original hardware and failed on FP-GBC.
 - Deterministic single-image rewritable cartridges are preferred over SD menu loaders for machine tests.
 - `Raku x Raku Mishin` is retained as the base sewing-machine control path.
 - Kirby, Mario, Cut Shuu, and Moji are retained as embroidery/design-unit paths.
 - Game Boy Pocket failures for CGB-only software are negative controls.
-- `izek_test_matrix_canonical_saved_2026-05-03.xlsx` reportedly contains the canonical compatibility matrix and translation key.
+- `artifacts/izek_test_matrix.xlsx` is committed with SHA-256 `fdb941a3a6936b61b20042d2fc8c103e78ca737df4389bdbfad5c45dccebd9e0`.
 
 Reported software inventory:
 
@@ -115,7 +115,9 @@ Reported results:
 
 These results do not establish IZEK protocol behavior.
 
-### Reconstructed experiment EXP-20260804-RECON-001: EZ-Flash Jr to Singer IZEK
+## Reconstructed experiments
+
+### EXP-20260804-RECON-001: EZ-Flash Jr to Singer IZEK
 
 Exact bench date not recovered. Classification: `observed/reported`.
 
@@ -129,57 +131,95 @@ Reported setup:
 - old upper thread initially present, then removed;
 - reproduction cartridges not yet received.
 
-Preceding validation:
-
-- six target images spanning Mario, Kirby, Singer, and Raku reportedly booted from the updated EZ-Flash Jr on the stock GBC;
-- Pokemon Picross and Grimace's Birthday were also exercised as control cases;
-- the EZ-Flash Jr had failed or errored on the FPGA GBC while functioning on original hardware.
-
-Reconstructed procedure:
-
-1. Boot Singer/IZEK software from the updated EZ-Flash Jr on the stock GBC.
-2. Connect the GBC to the Singer IZEK using the machine cable.
-3. Select a simple zig-zag operation.
-4. Observe machine behavior.
-5. Remove the old upper thread and run without thread.
-6. Observe the halt and thread-related error.
-
 Reported observations:
 
-- the Game Boy and machine communicated sufficiently to produce physical behavior;
-- selecting zig-zag caused visible lateral needle motion;
+- six target images plus Pokemon Picross and Grimace's Birthday reportedly booted on the stock GBC;
+- EZ-Flash Jr failed or errored on FP-GBC while functioning on original hardware;
+- selecting a simple zig-zag operation caused visible lateral needle motion;
 - operation without upper thread halted;
 - a thread-related error was reported.
 
 Narrow interpretation:
 
-The tested software image, updated EZ-Flash Jr, stock GBC, cable, and Singer IZEK exchanged enough information to produce selected physical needle motion and a thread-related stop condition. This is an end-to-end behavioral success for one configuration and supersedes the earlier statement that flash-cart communication with the physical IZEK had not been observed.
-
-Uncertainty and alternatives:
-
-- the division of logic between Game Boy software and machine controller is unknown;
-- the halt may reflect upper-thread sensing, tension behavior, a generic sewing fault, software interpretation, or another interlock;
-- no specific sensor, status byte, packet, or command is established;
-- the machine may have executed a locally stored operation selected by the Game Boy rather than receiving detailed stitch coordinates;
-- EZ-Flash Jr success does not establish electrical or timing equivalence to an original cartridge.
+The tested software image, updated EZ-Flash Jr, stock GBC, cable, and Singer IZEK exchanged enough information to produce selected physical needle motion and a thread-related stop condition. This supersedes the earlier statement that flash-cart communication with the physical IZEK had not been observed.
 
 Not established:
 
 - valid stitch formation;
-- correct bobbin, tension, needle, presser-foot, fabric, or stabilizer setup;
 - exact software hash, cart firmware, microSD, console revision, error text, or repeat count;
 - protocol bytes, framing, timing, clock ownership, or command semantics;
 - operation with an original or reproduction sewing-machine cartridge;
-- compatibility with other consoles, carts, software, or machine models.
+- compatibility with other consoles, carts, software, or machine models;
+- whether the halt came from thread presence, tension, a generic fault, another interlock, or software-side interpretation.
 
-Required repeat:
+### EXP-RECON-MECH-001: Feed-dog engagement failure
 
-- record exact console, machine, cable, controller, EZ-Flash Jr firmware, microSD, software filename, header, and SHA-256;
-- document threading, bobbin, needle, presser foot, tension, fabric, and stabilizer;
-- record exact menu actions, motion, and error text;
-- capture video showing console and machine together;
-- perform at least three repetitions plus one negative or control condition;
-- manifest and hash all artifacts.
+Exact bench date not recovered. Classification: `observed/reported`.
+
+Reported procedure:
+
+1. Open the bottom panel.
+2. Inspect the external feed control and internal mechanism.
+3. Observe the slider and cam-engagement path.
+4. Move the slider manually into the engaged position.
+
+Reported observations:
+
+- the external switch mechanically operates a slider that engages a cam;
+- the slider's engagement notch was broken;
+- the break prevented the external control from engaging the mechanism;
+- manually sliding the mechanism into position engaged the downstream feed-dog lift path.
+
+Narrow result:
+
+The immediate feed-dog failure was localized to the broken slider/notch transfer feature, while the downstream cam mechanism could still be engaged manually.
+
+Not established: long-term stability, correct feed height or timing, stitch-length calibration, durable repair, or valid fabric feed under threaded load.
+
+### EXP-RECON-MECH-002: Broken needle discovery
+
+Exact bench date not recovered. Classification: `observed/reported`.
+
+While locating the needle eye, the installed needle was found not to have a normal sharp end and was recognized as broken.
+
+This establishes only that the installed needle was unsuitable for a valid sewing test. It does not establish that the needle caused any specific electronic error, motor stop, red indicator, link error, or earlier motion anomaly.
+
+### EXP-RECON-MECH-003: Ramp, stop, and red indicator
+
+Exact bench date not recovered. Classification: `observed/reported`.
+
+Pressing the sew control reportedly caused the machine to start, ramp in speed, stop, and blink red at the switch or indicator.
+
+Concurrent unresolved conditions included the broken feed-dog engagement slider, manual feed-dog engagement, and a broken needle. Exact sequencing and machine configuration were not preserved.
+
+The behavior is a fault indication, but its source is not established. Do not label it as thread detection, tension sensing, motor overload, position-sensor failure, or a specific service code without authoritative mapping or measurement.
+
+### EXP-RECON-LINK-001: Upper-machine error graphic
+
+Exact bench date not recovered. Classification: `observed/reported`.
+
+The Game Boy software reportedly displayed an error graphic pointing toward the top of the machine.
+
+The graphic may refer to upper threading, spool routing, take-up, tension, or another upper-machine condition. The exact frame and authoritative manual text are not preserved. The observation does not prove a direct thread-presence or tension sensor.
+
+Required evidence: exact screen capture, software filename and SHA-256, cartridge/loader configuration, machine indicator state, thread route, presser-foot state, and immediately preceding action.
+
+## Compatibility result model
+
+Every compatibility run must record these separately:
+
+1. cartridge write completed;
+2. redump matched source;
+3. host recognized cartridge;
+4. software booted;
+5. operational UI reached;
+6. machine link initialized;
+7. upload started;
+8. upload completed;
+9. machine moved;
+10. valid stitch formed.
+
+A pass at one layer does not imply a pass at the next.
 
 ## Prior-art protocol summary
 
@@ -204,6 +244,10 @@ Each relied-upon statement still requires an article section or pinned GBE+ comm
 
 Use original Game Boy hardware and deterministic single-image native GB/GBC cartridges as the primary path. InsideGadgets MBC5 FRAM is the preferred development cartridge; FunnyPlaying EverSave is secondary; EZ-Flash Jr is a validated convenience and machine-test path for one reported configuration, not the ground-truth cartridge.
 
+### Mechanical baseline before protocol work
+
+Do not interpret protocol-driven motion while the machine has unresolved mechanical faults. Repair or stabilize the feed-dog slider, install the correct needle, verify free handwheel motion, establish correct threading and bobbin setup, and document one valid ordinary stitch before repeated machine-link tests.
+
 ### Notebook before code
 
 Do not implement the protocol merely because prior art exists. First establish ordinary machine operation, exact identities, deterministic cartridge verification, protected passive measurement, immutable captures, and claim-level provenance.
@@ -219,18 +263,17 @@ Do not implement the protocol merely because prior art exists. First establish o
 | EVD-20260804-005 | Save dumping works | observed/reported | awaiting logs and hashes |
 | EVD-20260804-009 | FunnyPlaying write/redump | observed/reported | awaiting artifacts |
 | EVD-20260804-010 | InsideGadgets CFI write/redump | observed/reported | awaiting artifacts |
-| EVD-20260804-011 | Sewing software boots/screenshots | observed/reported | hashes and exact records missing |
-| EVD-20260804-012 | R4, GameYob, and GBARunner2 work | observed/reported | separate from IZEK evidence |
-| EVD-20260804-013 | R36S ROM recovery | observed/reported | side investigation |
-| EVD-20260804-014 | Kingston SD-card failure | observed/reported | cause unknown |
-| EVD-20260804-015 | Updated EZ-Flash Jr boots target set on stock GBC | observed/reported | exact matrix missing |
-| EVD-20260804-016 | EZ-Flash Jr fails on FPGA GBC but works on original hardware | observed/reported | exact error record missing |
-| EVD-20260804-017 | Six target images plus two controls booted on stock GBC | observed/reported | exact names and hashes incomplete |
+| EVD-20260804-015 | Updated EZ-Flash Jr boots target set on stock GBC | observed/reported | exact matrix incomplete |
 | EVD-20260804-018 | EZ-Flash Jr path caused IZEK zig-zag needle motion | observed/reported | experiment artifacts missing |
 | EVD-20260804-019 | Thread removal led to a thread-related halt | observed/reported | source and meaning unverified |
-| EVD-20260804-020 | End-to-end stock-GBC/EZ-Flash Jr/IZEK path functioned | inferred from reported observations | narrow configuration only |
+| EVD-20260804-020 | End-to-end stock-GBC/EZ-Flash Jr/IZEK path functioned | inferred | narrow configuration only |
 | EVD-20260804-021 | Valid threaded stitch | unverified | not established |
 | EVD-20260804-022 | Reproduction cartridges ordered | reported state | pending receipt and validation |
+| EVD-20260804-023 | Feed-dog slider notch broken | observed/reported | photographs and dimensions missing |
+| EVD-20260804-024 | Manual slider positioning engaged feed-dog lift path | observed/reported | durability and timing unverified |
+| EVD-20260804-025 | Installed needle physically broken | observed/reported | exact needle system unknown |
+| EVD-20260804-026 | Sew control caused ramp-stop-red behavior | observed/reported | fault source unresolved |
+| EVD-20260804-027 | Game Boy displayed upper-machine error graphic | observed/reported | exact frame and meaning unresolved |
 
 ## Future experiment record
 
