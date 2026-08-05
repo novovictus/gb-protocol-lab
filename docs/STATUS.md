@@ -4,7 +4,7 @@ Last updated: 2026-08-04
 
 ## Phase
 
-End-to-end intended-hardware baseline documentation, deterministic cartridge workflow verification, ordinary sewing setup, protected passive instrumentation, and claim-level prior-art mapping.
+End-to-end intended-hardware baseline documentation, deterministic cartridge workflow verification, compatibility-matrix reconstruction, ordinary sewing setup, protected passive instrumentation, and claim-level prior-art mapping.
 
 Protocol implementation remains deferred.
 
@@ -14,97 +14,74 @@ Artifact-backed repository facts:
 
 - Shonumi's article and its 2026-03-07 archive are recorded.
 - GBE+ is recorded as relevant GPLv2 prior art.
-- The project has a compact canonical notebook, status record, reference record, and hardware inventory.
-- No ROM, proprietary firmware, physical-bus capture, or protocol implementation is committed.
+- The compact canonical notebook, status, references, and hardware inventory remain the documentation surface.
+- `artifacts/izek_test_matrix.xlsx` is now committed with SHA-256 `fdb941a3a6936b61b20042d2fc8c103e78ca737df4389bdbfad5c45dccebd9e0`.
+- No commercial ROM, proprietary firmware, physical-bus capture, or protocol implementation is committed.
 
 Results retained as `observed/reported`:
 
 - OSCR was assembled; Game Boy ROM and save reads worked; at least one output was usable in an emulator.
 - A replacement controller powered the Singer IZEK and produced machine motion.
-- An updated EZ-Flash Jr booted the tested software set on a completely stock Game Boy Color.
-- Six target images spanning Mario, Kirby, Singer, and Raku software reportedly booted; Pokemon Picross and Grimace's Birthday were also exercised as control cases.
-- The EZ-Flash Jr failed on the FPGA GBC while the corresponding path worked on original hardware.
-- A stock GBC running Singer/IZEK software from the EZ-Flash Jr communicated with the physical machine: selecting a simple zig-zag operation produced visible lateral needle motion.
-- Running without the old upper thread caused the system to halt with a thread-related error.
-- A valid threaded stitch has not been documented. Work paused pending correct threading, bobbin, tension, needle, fabric, stabilizer, and ordinary operating procedure.
-- A Singer/IZEK image was reportedly written to and redumped from a FunnyPlaying EverSave cart.
-- The Kirby sewing title was reportedly written to and redumped from an InsideGadgets MBC5 2 MiB / 32 KiB FRAM cart.
-- The successful InsideGadgets path reportedly used OSCR `CFI Repro`, `WE=WR`, and M29F160F-compatible behavior; generic `29F Repro` was not the successful path.
-- The external workbook `izek_test_matrix_canonical_saved_2026-05-03.xlsx` reportedly contains the canonical software compatibility matrix.
+- An updated EZ-Flash Jr booted the tested software set on a stock Game Boy Color.
+- Stock GBC plus EZ-Flash Jr plus Singer/IZEK software produced visible lateral needle motion and later halted with a thread-related error.
+- A Singer/IZEK image was written to and redumped from a FunnyPlaying EverSave cart.
+- The same FunnyPlaying image reportedly booted on original GBC, Game Boy Pocket, and FP-GBC; machine upload reportedly succeeded from GBC and Pocket but failed from FP-GBC.
+- Kirby Family was written to and redumped from an InsideGadgets MBC5 2 MiB / 32 KiB FRAM cart using OSCR `CFI Repro`, `WE=WR`, and M29F160F-compatible behavior.
+- Kirby reportedly booted on original GBA but produced an immediate upload error. A later Pocket run also produced an immediate error. Original GBC and FP-GBC reportedly reached upload and displayed different errors.
+- EZ-Flash Jr failed to boot on FP-GBC.
+
+## Layered result model
+
+Every compatibility run must record these separately:
+
+1. cartridge write completed;
+2. redump matched source;
+3. host recognized cartridge;
+4. software booted;
+5. operational UI reached;
+6. machine link initialized;
+7. upload started;
+8. upload completed;
+9. machine moved;
+10. valid stitch formed.
+
+A pass at one layer does not imply a pass at the next. `Booted` is not shorthand for machine compatibility.
 
 ## Superseded boundary
 
-The earlier statement that no flash-cart communication with the physical IZEK had been observed is superseded.
-
-For one reported configuration, this chain functioned sufficiently to produce deterministic physical behavior:
-
-`software image -> updated EZ-Flash Jr -> stock GBC -> link cable -> Singer IZEK -> lateral needle motion / thread-related halt`
-
-This is stronger than a boot or menu-navigation test. It does not establish why the halt occurred, which sensor or status mechanism was involved, whether detailed stitch coordinates were transferred, or whether the EZ-Flash Jr is electrically or temporally equivalent to an original cartridge.
+The earlier statement that no flash-cart communication with the physical IZEK had been observed is superseded. One stock-GBC/EZ-Flash Jr/Singer path produced deterministic machine motion. That does not establish generalized flash-cart compatibility, packet semantics, detailed coordinate transfer, or a valid stitch.
 
 ## Claim boundary
 
 Not established:
 
 - a valid threaded stitch or embroidery result;
-- correct threading, bobbin setup, tension, needle choice, stabilizer, or fabric handling;
-- electrical equivalence of the replacement foot controller;
-- communication using an original or reproduction sewing-machine cartridge;
-- generalized EZ-Flash Jr compatibility beyond the tested configuration;
+- electrical equivalence among original, EZ-Flash Jr, FunnyPlaying, and InsideGadgets cartridges;
+- equivalence among stock GBC, Pocket, GBA CGB mode, SGB2, FP-GBC, MiSTer, Analogue Pocket, or Chromatic;
 - connector pinout, voltage levels, idle states, signaling direction, or clock ownership;
 - packet format, commands, timing, status values, integrity fields, or stitch encoding;
-- the exact source or meaning of the thread-related halt;
-- model equivalence among Singer IZEK 1500, Jaguar JN-100, and Jaguar JN-2000;
-- exact identity or release status of every local software image;
-- independent reproduction of Shonumi's protocol findings;
-- cause of the Kingston 32 GB SD-card failure.
+- exact cause of the host-specific upload failures or thread-related halt;
+- independent reproduction of Shonumi's protocol findings.
 
 ## Blocking evidence gaps
 
-1. No complete contemporaneous experiment record for the stock-GBC/EZ-Flash Jr/IZEK interaction.
-2. No exact software hash, EZ-Flash Jr firmware identity, microSD identity, console revision, cable identity, machine settings, error text, repetition count, or dated media tied to that interaction.
-3. No documented ordinary threaded straight-stitch baseline.
-4. No committed OSCR logs, hashes, version records, or cartridge photographs.
-5. No imported or hashed safe derivative of the canonical compatibility workbook.
-6. No exact source/redump hash pair for either successful rewritable-cartridge path.
-7. No original-hardware boot matrix tied to exact hashed images.
-8. No claim-level map of Shonumi's article and pinned GBE+ files and symbols.
-9. No protected passive breakout, voltage survey, or project-generated raw capture.
+1. No row-level mapping from workbook entries to exact experiment and evidence IDs.
+2. No exact chronology resolving differing Pocket and FP-GBC observations across Singer and Kirby runs.
+3. No exact ROM hashes, cartridge revisions, programmed-image verification, host board revisions, firmware/core versions, cable identities, machine state, error text, timestamps, repetition counts, or artifact hashes for the retained compatibility runs.
+4. No documented ordinary threaded straight-stitch baseline.
+5. No complete OSCR logs and source/redump hash pairs.
+6. No protected passive breakout, voltage survey, or project-generated raw capture.
 
-## Immediate actions and queued experiments
+## Immediate actions
 
-1. **Preserve the successful interaction:** reconstruct the stock-GBC/EZ-Flash Jr/IZEK test in the notebook with exact identities, hashes, firmware, setup, prompts, motion, halt behavior, alternatives, and limitations.
-2. **Ordinary straight stitch:** learn and document correct upper threading, bobbin, needle, presser foot, tension, fabric, stabilizer, and settings. Photograph both fabric sides and capture short video.
-3. **Controlled zig-zag repeat:** after correct setup, repeat the same selection at least three times and separate UI selection, machine motion, actual stitch formation, and status/error response. Include a negative or control condition.
-4. **OSCR repeat-read consistency:** perform two independent ROM and save reads with complete logs, byte lengths, header report, and SHA-256 hashes.
-5. **InsideGadgets write/redump reproduction:** repeat the `CFI Repro` / `WE=WR` path and compare source and redump byte-for-byte.
-6. **Original-hardware boot matrix:** test exact hashed images on identified original Game Boy platforms. Record bootability separately from link availability and machine communication.
-7. **Compatibility matrix preservation:** create a redistribution-safe derivative and record the source-workbook hash.
-8. **Reproduction-cartridge intake:** on arrival, record supplier, board, mapper, flash and RAM parts, programmed image, write procedure, redump, and hashes before physical-machine use.
-9. **Passive fixture continuity and isolation:** validate every conductor, resistance, ground, shorts, and default active-path isolation while unpowered.
-10. **Idle-state voltage survey:** measure every conductor with high-impedance instrumentation before connecting any 3.3 V-only active device.
-11. **First passive transaction capture:** preserve the native analyzer file unchanged and store exports, decoding, annotations, and packet hypotheses only as derivatives.
-12. **Prior-art map:** pin every relied-upon statement to an article section or GBE+ commit, file, symbol, and license record.
-
-## Artifact and capture rules
-
-For each artifact, preserve the original filename and trustworthy timestamp, device/software/firmware/operator context, SHA-256, byte length, source, redistribution status, experiment ID, claim IDs, and whether it is raw or derived. Do not alter raw evidence in place.
-
-Do not commit commercial ROMs, proprietary firmware, credentials, personal data, or copyrighted material without permission. Record lawful metadata, hashes, header reports, limited screenshots where permitted, and reproducible procedures instead.
-
-The first analyzer or scope session file is immutable evidence. Record instrument and software versions, sample rate, thresholds, coupling, probes, channel mapping, fixture revision, console, cartridge, image hash, machine state, power state, exact action, and timestamps. Derived decodes must identify the raw hash, tool/version, procedure, bit order, polarity, edge, clock assumptions, framing assumptions, and unresolved ambiguity.
-
-A repeatable waveform is not yet a packet. A byte sequence is not yet a command. Correlation with an action is not proof of semantics without controlled variation and negative tests.
+1. Reconstruct each 2026-04-24 and 2026-05-03 run as a separate experiment record.
+2. Preserve the workbook unchanged and create a redistribution-safe CSV or Markdown derivative linked to row-level evidence IDs.
+3. Retest one exact image/cart/host combination at a time, recording machine power state, attachments, thread state, selected operation, exact screen text, and repetition count.
+4. Keep boot, UI, link initialization, upload start, upload completion, physical motion, and stitch formation as separate fields.
+5. Reproduce OSCR reads and both write/redump paths with complete logs and SHA-256 comparisons.
+6. Document an ordinary threaded stitch before interpreting protocol-driven motion as sewing success.
+7. Validate a protected passive fixture and voltage compatibility before active hardware is connected.
 
 ## Protocol implementation gate
 
-No active drive, replay, endpoint emulator, or firmware implementation until all of the following exist:
-
-- documented ordinary machine operation and at least one valid threaded stitch;
-- exact hardware and software identities for the successful native interaction;
-- verified write, redump, hash comparison, and original-hardware execution;
-- a protected passive fixture validated for continuity, isolation, and voltage compatibility;
-- at least one immutable project-generated raw capture with complete setup metadata;
-- a narrowly stated measured question;
-- a hazard and failback plan;
-- provenance for every prior-art behavior relied upon.
+No active drive, replay, endpoint emulator, or firmware implementation until ordinary machine operation, exact identities, deterministic write/redump verification, protected passive measurement, immutable raw capture, a narrowly stated measured question, a hazard/failback plan, and prior-art provenance are all documented.
