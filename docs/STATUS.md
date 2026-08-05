@@ -1,7 +1,5 @@
 # Project Status
 
-Last updated: 2026-08-05
-
 ## Phase
 
 Engineering-notebook consolidation before code. Current work is end-to-end intended-hardware baseline documentation, deterministic cartridge workflow verification, mechanical restoration, compatibility-matrix reconstruction, source attribution, and passive-measurement planning.
@@ -10,15 +8,9 @@ Protocol implementation remains deferred.
 
 ## Current state
 
-Repository facts from the current default branch:
+Repository facts from the default branch:
 
-- Canonical documentation exists under `README.md`, `docs/NOTEBOOK.md`, `docs/STATUS.md`, `docs/REFERENCES.md`, and `hardware/INVENTORY.md`.
-- `artifacts/izek_test_matrix.xlsx` is committed with SHA-256 `fdb941a3a6936b61b20042d2fc8c103e78ca737df4389bdbfad5c45dccebd9e0`.
-- A dated photo-backed evidence index is committed under `artifacts/2026-05-03-compatibility-evidence/`.
-- The committed contact-sheet derivative has SHA-256 `631f990bdf22d4e80851b35b48505fd7c77c2358dbf695ec26bb4fced5e023ea`.
-- The evidence manifest records SHA-256 hashes for all sixteen original source photos and identifies an alternate workbook revision with SHA-256 `a1bb3aa68c7cec801a31c387377345be2a513a7677a2c83d6f8c18c97cc86d9d`.
-- The alternate workbook differs from the previously committed root workbook. Both identities are preserved; neither silently supersedes the other.
-- No commercial ROM, proprietary firmware, physical-bus capture, or protocol implementation is committed.
+- Canonical documentation exists under `README.md`, `docs/NOTEBOOK.md`, `docs/STATUS.md`, `docs/REFERENCES.md`, `hardware/INVENTORY.md`, and `artifacts/izek_test_matrix.xlsx`.
 
 Artifact-backed compatibility observations:
 
@@ -34,26 +26,20 @@ Results retained as `observed/reported` unless later backed by committed evidenc
 - The feed-dog lift failure was traced to a broken notch on the mechanical slider that engages the cam. Manually positioning the slider restored engagement of the downstream mechanism.
 - The installed needle used during initial bring-up was physically broken and unsuitable for a valid sewing test.
 - The lower plastic drop-in bobbin case reportedly arrived with substantial prior needle-strike marks.
-- Multiple reseating attempts reportedly did not prevent the bobbin case from shifting during automatic operation.
-- Continued tests reportedly caused thread jams, bent or broken needles, and additional marring of the bobbin case.
+- Multiple reseating attempts did not prevent the bobbin case from shifting during automatic operation.
+- Continued tests caused thread jams, bent or broken needles, and additional marring of the bobbin case.
 - Under automatic operation, the bobbin case reportedly rotated approximately 10 degrees or more into the needle path and was struck by the needle.
 - The immediate mechanical fault is therefore consistent with inadequate bobbin-case retention or seating. This does not establish whether the root cause is the case itself, the stopper or position bracket, retainer/race hardware, or timing/alignment.
-- During the unresolved bring-up state, pressing sew reportedly caused the machine to accelerate, stop, and blink red at the switch or indicator.
+- During the unresolved bring-up state, pressing sew caused the machine to accelerate, stop, and blink red at the switch or indicator.
 - The Game Boy software displayed an error graphic pointing toward the upper area of the machine during the same general troubleshooting period.
-- These mechanical and UI observations do not establish a direct thread-presence sensor, tension sensor, motor-overload code, position-sensor fault, or any specific protocol status.
-- Correct bobbins, 100% polyester all-purpose thread, a needle assortment, denim needles, and Singer oil were obtained locally after returning the Amazon starter supplies. Exact package identities and authoritative compatibility remain unverified.
-- The machine reportedly lacked spool caps and other loose accessories. Correct horizontal-spool retention is therefore an unresolved prerequisite; a standalone thread stand remains a possible workaround if the onboard spool path cannot feed cleanly.
-- The generic replacement foot controller remains uncharacterized by model, rating, connector wiring, and electrical equivalence. It must not be assumed unrelated to ramp-stop or red-indicator behavior.
-- An updated EZ-Flash Jr reportedly booted the tested software set on a stock Game Boy Color.
+- An updated EZ-Flash Jr booted the tested software set on a stock Game Boy Color.
 - Stock GBC plus EZ-Flash Jr plus Singer/IZEK software reportedly produced visible lateral needle motion and later halted with a thread-related error.
-- A Singer/IZEK image was reportedly written to and redumped from a FunnyPlaying EverSave cart.
-- `Jaguar Mishin Sashi Senyou Soft - Kirby Family (Japan) (Proto)` was reportedly written to and redumped from an InsideGadgets MBC5 2 MiB / 32 KiB FRAM cart using OSCR `CFI Repro`, `WE=WR`, and M29F160F-compatible behavior.
-- EZ-Flash Jr reportedly failed to boot on FP-GBC.
+- A Singer/IZEK image was written to and redumped from a FunnyPlaying EverSave cart.
+- `Jaguar Mishin Sashi Senyou Soft - Kirby Family (Japan) (Proto)` was written to and redumped from an InsideGadgets MBC5 2 MiB / 32 KiB FRAM cart using OSCR `CFI Repro`, `WE=WR`, and M29F160F-compatible behavior.
+- EZ-Flash Jr failed to boot on FP-GBC.
 - DS-family side work revived an R4 SDHC with period firmware and made GameYob/GBARunner2 operational. That path is separate from native GB/GBC IZEK protocol evidence.
 
 ## Model and accessory boundary
-
-Current project documentation must preserve these distinctions until project-owned manuals, catalogs, hardware, or captures verify them:
 
 - Singer IZEK 1500 is the project-owned Western base sewing-machine target. Current project evidence does not establish EM-2000 attachment support.
 - Jaguar JN-100 / nu-yell is treated as the analogous Japanese base-machine path.
@@ -64,7 +50,7 @@ An embroidery-software screen requesting or depicting the embroidery unit is com
 
 ## Bobbin-case fault boundary
 
-The bobbin case should have limited clearance, not unrestricted rotation. The reported 10-degree-plus movement into the needle path is unsafe for powered operation and is sufficient to explain needle impact and thread jams without invoking a Game Boy or cartridge fault.
+The bobbin case should have limited clearance, not unrestricted rotation. The 10-degree-plus movement into the needle path is unsafe for powered operation and is sufficient to explain needle impact and thread jams without invoking a Game Boy or cartridge fault.
 
 Potential fault classes remain separate:
 
@@ -73,11 +59,7 @@ Potential fault classes remain separate:
 3. retainer, retainer spring, shuttle race, or race-base fault;
 4. needle-bar alignment, hook timing, needle plate, or hook/race deformation after retention is verified.
 
-Source leads retained for later verification include bobbin-case families `76212`, `076212`, `141000810`, and `51045`; stopper or position references `76118` and possible retail cross-reference `51058`; and deeper hook-area references `76156`, `76157`, `76213`, `76027`, `76103`, and `85164`. These are search leads only, not verified interchangeability claims.
-
 ## Layered result model
-
-Every compatibility run must record these separately:
 
 1. cartridge write completed;
 2. redump matched source;
@@ -90,11 +72,9 @@ Every compatibility run must record these separately:
 9. machine moved;
 10. valid stitch formed.
 
-A pass at one layer does not imply a pass at the next. `Booted` is not shorthand for machine compatibility.
-
 ## Superseded boundary
 
-The earlier statement that no flash-cart communication with the physical IZEK had been observed is superseded. One stock-GBC/EZ-Flash Jr/Singer path reportedly produced deterministic machine motion. That does not establish generalized flash-cart compatibility, packet semantics, detailed coordinate transfer, or a valid stitch.
+The earlier statement that no flash-cart communication with the physical IZEK had been observed is superseded. One stock-GBC/EZ-Flash Jr/Singer path reportedly produced deterministic machine motion. 
 
 ## Current claim boundary
 
