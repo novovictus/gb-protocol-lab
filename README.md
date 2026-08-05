@@ -19,13 +19,19 @@ The project also has reported OSCR ROM/save acquisition and deterministic rewrit
 - [Prior art and attribution](docs/REFERENCES.md)
 - [Hardware inventory](hardware/INVENTORY.md)
 
+## Compatibility evidence
+
+- [IZEK compatibility test matrix](docs/izek_test_matrix.xlsx)
+- [Remote compatibility photo album](https://photos.app.goo.gl/GYaj7Pjwva9XXzap6)
+
+The workbook records structured compatibility results. The remote album retains the corresponding visual evidence. A screen state or successful boot does not by itself establish completed upload, protocol equivalence, electrical compatibility, machine motion, or valid stitch formation.
+
 ## Repository layout
 
 ```text
-docs/          Canonical project documentation
+docs/          Canonical project documentation and compatibility records
 hardware/      Inventory, fixtures, and hardware notes
 captures/      Raw and processed protocol captures
-artifacts/     Logs, manifests, hashes, and lawful evidence
 firmware/      Embedded implementations
 tools/         Analysis and capture utilities
 ```
