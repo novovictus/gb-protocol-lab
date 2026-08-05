@@ -4,7 +4,7 @@ Status values: `owned`, `validated`, `validated/reported`, `planned`, `failed/re
 
 | ID | Item | Status | Project role | Notes |
 |---|---|---|---|---|
-| HW-001 | Singer IZEK 1500 | owned / mechanically impaired / validated-reported | Primary peripheral target | Acquired without original foot controller, cartridge, or console. Replacement controller produces motion. Stock GBC plus updated EZ-Flash Jr reportedly caused zig-zag needle motion and a thread-related halt. Feed-dog engagement slider has a broken cam-engagement notch; manual positioning restored downstream engagement. Valid threaded stitch not documented. Current project evidence does not establish EM-2000 attachment support. |
+| HW-001 | Singer IZEK 1500 | owned / mechanically impaired / validated-reported | Primary peripheral target | Acquired without original foot controller, cartridge, or console. Replacement controller produces motion. Stock GBC plus updated EZ-Flash Jr reportedly caused zig-zag needle motion and a thread-related halt. Feed-dog engagement slider has a broken cam-engagement notch; manual positioning restored downstream engagement. Bobbin-case retention is unsafe: the case reportedly rotates into the needle path under automatic operation. Valid threaded stitch not documented. Current project evidence does not establish EM-2000 attachment support. |
 | HW-002 | Singer-compatible replacement foot controller | owned / validated-reported / electrically uncharacterized | Powered machine tests | Purchased from Amazon. Manufacturer, model, ratings, connector, wiring, photographs, and safety comparison remain required. Do not assume it is unrelated to ramp-stop or red-indicator behavior. |
 | HW-003 | Original Game Boy Color | owned / validated-reported baseline | Ground-truth native cartridge and link tests | Completely stock unit reportedly booted the tested EZ-Flash Jr software set and communicated with the physical IZEK. Kirby on InsideGadgets reportedly reached upload and showed an error. Record exact model and board revision. |
 | HW-004 | Game Boy Pocket | owned / validated-reported for selected software | DMG-class compatibility and negative controls | Singer/IZEK software reportedly booted and uploaded successfully in one retained run. A later Kirby run produced a CGB-only rejection screen, expected for CGB-only software. |
@@ -40,19 +40,28 @@ Status values: `owned`, `validated`, `validated/reported`, `planned`, `failed/re
 | HW-034 | Standalone single-spool thread stand | considered | Upper-thread workaround | Acceptable non-invasive workaround if the onboard horizontal or vertical spool path cannot retain and feed the selected spool cleanly. |
 | HW-035 | Jaguar JN-2000 / nuotto | not owned / prior-art model boundary | Future embroidery-capable comparison target | Treated as the embroidery-capable machine path associated with EM-2000 in prior art. Exact project claim requires pinned source or project-owned documentation. |
 | HW-036 | Jaguar EM-2000 embroidery unit | not owned / deferred target | Future capability-presence and design-extraction research | Accessory associated with JN-2000 embroidery software paths. No spoofing, motor control, or hoop-motion work until the base protocol gate is satisfied. |
+| HW-037 | Original drop-in bobbin case | owned / damaged / unsafe for powered use | Lower-thread case and retention diagnostic | Reportedly arrived with substantial needle-strike marks. Multiple reseating attempts did not prevent approximately 10-degree-plus rotation into the needle path. Additional tests caused thread jams, bent or broken needles, and further marring. Candidate search family includes `76212`, `076212`, `141000810`, and `51045`; all cross-references remain unverified. |
+| HW-038 | Bobbin-case stopper / retention stack | present / condition unresolved | Prevent bobbin-case rotation and lift | Visible stopper or position feature reportedly appears to be solid metal. Inspect seating, screw clamping, clearance, retainer spring, retainer, shuttle race, race base, cover, and crash burrs before replacing deeper timing components. Search leads include `76118`, possible `51058`, `76156`, `76157`, `76213`, `76027`, `76103`, and `85164`; none are verified interchangeable parts. |
+| HW-039 | Sacrificial replacement bobbin cases | considered / fit unverified | No-thread geometry comparison and handwheel diagnostic | HONEYSEW `Q6A0764000` is a low-probability comparator. CKPSMS `#86132` / `#51045` is a better candidate only because `51045` appears in retained cross-reference leads. Reject any case differing in height, locating geometry, needle-clearance window, bottom profile, or stopper contact. |
 
 ## Immediate mechanical dependency
 
 Before further powered or protocol-driven sewing tests:
 
+- stop powered operation until the bobbin case remains constrained and the needle clears through manual rotation;
+- photograph the original bobbin case, locating tab, stopper contact, retainer/race hardware, and all strike marks;
+- install a new, straight, correctly oriented needle;
+- perform at least 20 slow handwheel cycles with no upper thread and no bobbin;
+- confirm a firm clockwise/counterclockwise stop without case lift, rocking, or needle contact;
+- repeat only after each prior stage passes: bobbin installed without upper thread, threaded handwheel test, then slowest powered test;
 - photograph and measure the broken feed-dog slider/notch;
 - document engaged and disengaged positions;
 - implement a reversible retention or durable repair;
-- identify and install the correct needle system and orientation;
-- verify unobstructed handwheel rotation;
 - identify the replacement foot controller by model, rating, connector, and wiring;
 - confirm upper thread, bobbin, bobbin-winder seating, spool support, threading, tension, presser-foot state, fabric, and stabilizer;
 - produce and document one ordinary valid straight stitch.
+
+If a correctly fitting replacement case still rotates with no thread, inspect the stopper, screw, retainer, retainer spring, shuttle race, race base, cover, and prior-crash burrs. If the case is firmly retained but the needle still strikes, stop and treat the remaining fault as needle-bar, needle-plate, hook/race, or timing/alignment work.
 
 ## Fixture requirements
 
