@@ -6,15 +6,22 @@ The initial research target is the Singer IZEK / Jaguar JN sewing-machine interf
 
 ## Current phase
 
-The project is in repository setup, asset inventory, prior-art mapping, and evidence-preservation work.
+The project is in repository setup, asset inventory, prior-art mapping, evidence preservation, and preparation for controlled hardware capture.
 
-No independent protocol implementation, validated communication capture, or confirmed hardware reproduction is claimed yet.
+No independent protocol implementation, validated Singer/Jaguar communication capture, or confirmed hardware reproduction is claimed yet.
+
+Retained project history records substantial pre-repository bench work, including OSCR validation, rewritable-cartridge flash/redump tests, target-ROM classification, acquisition of a Singer IZEK 1500, and selection of original Game Boy hardware as the current execution baseline. These records remain labeled `reported` until their primary artifacts are attached.
 
 See:
 
 - [Project status](docs/STATUS.md)
 - [Research methodology](docs/METHODOLOGY.md)
 - [Evidence register](docs/EVIDENCE.md)
+- [Evidence and claim matrix](docs/EVIDENCE-MATRIX.md)
+- [Hardware and tooling inventory](docs/HARDWARE-INVENTORY.md)
+- [Cartridge and ROM notes](docs/CARTRIDGE-NOTES.md)
+- [Experiment plan](docs/EXPERIMENT-PLAN.md)
+- [Provenance policy](docs/PROVENANCE.md)
 - [References and prior art](docs/REFERENCES.md)
 - [Roadmap](docs/ROADMAP.md)
 - [Research log](docs/RESEARCH-LOG.md)
@@ -27,6 +34,7 @@ Every technical claim should identify its basis:
 | --- | --- |
 | `observed` | Directly measured or recorded by this project |
 | `reproduced` | Prior behavior independently repeated by this project |
+| `reported` | Retained from earlier project work but not yet tied to a primary repository artifact |
 | `inferred` | Conclusion drawn from evidence but not directly observed |
 | `prior-art` | Reported by an external source |
 | `code-derived` | Determined by reading an existing implementation |
