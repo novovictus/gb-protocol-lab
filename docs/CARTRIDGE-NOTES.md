@@ -29,6 +29,37 @@ Reasoning:
 
 Status: `decision` plus `observed/reported` successful use. Import flash/redump logs before treating the workflow as artifact-backed.
 
+## Non-IZEK flash validation targets
+
+Two homebrew or preservation-oriented images were discussed as convenient controlled targets for the same InsideGadgets cartridge:
+
+- `Pokemon Picross` beta;
+- `Grimace's Birthday`.
+
+Retained project history reports that both images declare:
+
+- cartridge type `0x1B` (`MBC5 + RAM + battery` in the standard header interpretation);
+- 32 KiB external RAM.
+
+This is currently `reported`, not artifact-backed. The earlier conclusion that the same 2 MiB MBC5 / 32 KiB FRAM cartridge should support both images is a compatibility inference from the reported headers and capacity, not a completed hardware result.
+
+These images are useful as non-IZEK controls because they can exercise the ordinary flash, boot, save, redump, and hash workflow without implying anything about the sewing-machine protocol.
+
+Required validation for each image:
+
+1. record the lawful source and acquisition date;
+2. record file size and SHA-256 without committing the ROM;
+3. generate and preserve a machine-readable header report;
+4. verify ROM size does not exceed the cartridge capacity;
+5. flash with recorded OSCR hardware, firmware, and host-software versions;
+6. redump the programmed cartridge and compare the used ROM region byte-for-byte;
+7. boot on original GB/GBC hardware and record the exact console model;
+8. exercise save creation and reload when supported;
+9. redump save data and record size and hash;
+10. treat success with either image only as validation of the cartridge workflow, not as evidence about IZEK electrical or protocol compatibility.
+
+The cart is a single-image rewritable cartridge. Switching between these targets requires reflashing; it is not a multi-ROM menu cartridge.
+
 ## OSCR status
 
 Retained project history states:
