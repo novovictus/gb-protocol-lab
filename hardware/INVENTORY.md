@@ -15,6 +15,11 @@ Status values: `owned`, `validated`, `validated/reported`, `planned`, or `unknow
 | HW-009 | EZ-Flash Jr | partially validated/reported | Original-hardware convenience loader | Reportedly works after firmware update on original hardware and fails on FPGA GBC. |
 | HW-010 | Flipper Zero | owned | Possible later active endpoint or replay tool | Existing Game Boy link work is prior art, not an IZEK implementation. |
 | HW-011 | Logic analyzer | not established | Passive capture | Acquire or borrow if existing equipment cannot capture clock and both data directions reliably. |
+| HW-012 | Nintendo DS-family consoles | owned | Separate flash-cart and compatibility work | GameYob and GBARunner2 reportedly operational. Not native GB/GBC protocol ground truth. |
+| HW-013 | R4 SDHC | validated/reported | Separate DS convenience platform | Revived with period firmware. Exact cart revision and firmware identity remain unrecorded. |
+| HW-014 | Kingston 32 GB SD card | failed/reported | R4 failure investigation | Reportedly failed during R4 revival. Preserve card and adapter; do not assign cause without media or electrical diagnostics. |
+| HW-015 | Allwinner-based R36S clone | owned / partial recovery | Side preservation source | ROM files reportedly recovered; alternate operating-system installation unsuccessful. |
+| HW-016 | Damaged Game Boy Advance SP | owned / condition unknown | Candidate link connector donor or repair project | Dog-damaged. Assess board, connector continuity, repair potential, and non-destructive alternatives before harvesting. |
 
 ## Sewing setup still required
 
@@ -30,6 +35,8 @@ Status values: `owned`, `validated`, `validated/reported`, `planned`, or `unknow
 Project history also records donor GB/GBA hardware, soldering and rework tools, a GQ-4X programmer, and scrap cartridges. These are capabilities, not completed fixtures.
 
 Any breakout or adapter must have a schematic, continuity measurements, protection details, and photographs before use on rare hardware.
+
+For the damaged GBA SP, connector harvesting should wait until the board is photographed, repair potential is assessed, continuity is checked, pinout and voltage are independently verified, and strain relief and keyed orientation are designed.
 
 ## New-item template
 
