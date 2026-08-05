@@ -4,7 +4,7 @@ Last updated: 2026-08-04
 
 ## Phase
 
-End-to-end intended-hardware baseline documentation, deterministic cartridge workflow verification, compatibility-matrix reconstruction, ordinary sewing setup, protected passive instrumentation, and claim-level prior-art mapping.
+End-to-end intended-hardware baseline documentation, mechanical restoration, deterministic cartridge workflow verification, compatibility-matrix reconstruction, ordinary sewing setup, protected passive instrumentation, and claim-level prior-art mapping.
 
 Protocol implementation remains deferred.
 
@@ -15,13 +15,18 @@ Artifact-backed repository facts:
 - Shonumi's article and its 2026-03-07 archive are recorded.
 - GBE+ is recorded as relevant GPLv2 prior art.
 - The compact canonical notebook, status, references, and hardware inventory remain the documentation surface.
-- `artifacts/izek_test_matrix.xlsx` is now committed with SHA-256 `fdb941a3a6936b61b20042d2fc8c103e78ca737df4389bdbfad5c45dccebd9e0`.
+- `artifacts/izek_test_matrix.xlsx` is committed with SHA-256 `fdb941a3a6936b61b20042d2fc8c103e78ca737df4389bdbfad5c45dccebd9e0`.
 - No commercial ROM, proprietary firmware, physical-bus capture, or protocol implementation is committed.
 
 Results retained as `observed/reported`:
 
 - OSCR was assembled; Game Boy ROM and save reads worked; at least one output was usable in an emulator.
 - A replacement controller powered the Singer IZEK and produced machine motion.
+- The feed-dog lift failure was traced to a broken notch on the mechanical slider that engages the cam. Manually positioning the slider restored engagement of the downstream mechanism.
+- The installed needle used during initial bring-up was found physically broken and unsuitable for a valid sewing test.
+- During the unresolved bring-up state, pressing sew reportedly caused the machine to accelerate, stop, and blink red at the switch/indicator.
+- The Game Boy software displayed an error graphic pointing toward the upper area of the machine during the same general troubleshooting period.
+- These mechanical and UI observations do not establish a direct thread-presence sensor, tension sensor, motor-overload code, position-sensor fault, or any specific protocol status.
 - An updated EZ-Flash Jr booted the tested software set on a stock Game Boy Color.
 - Stock GBC plus EZ-Flash Jr plus Singer/IZEK software produced visible lateral needle motion and later halted with a thread-related error.
 - A Singer/IZEK image was written to and redumped from a FunnyPlaying EverSave cart.
@@ -56,6 +61,10 @@ The earlier statement that no flash-cart communication with the physical IZEK ha
 Not established:
 
 - a valid threaded stitch or embroidery result;
+- correct feed height, feed timing, stitch length, or durable feed-dog repair;
+- the specific cause of the ramp-stop-red indication;
+- whether the upper-machine graphic represents threading, spool routing, take-up, tension, or another machine condition;
+- direct sensing of missing thread or thread tension;
 - electrical equivalence among original, EZ-Flash Jr, FunnyPlaying, and InsideGadgets cartridges;
 - equivalence among stock GBC, Pocket, GBA CGB mode, SGB2, FP-GBC, MiSTer, Analogue Pocket, or Chromatic;
 - connector pinout, voltage levels, idle states, signaling direction, or clock ownership;
@@ -65,22 +74,29 @@ Not established:
 
 ## Blocking evidence gaps
 
-1. No row-level mapping from workbook entries to exact experiment and evidence IDs.
-2. No exact chronology resolving differing Pocket and FP-GBC observations across Singer and Kirby runs.
-3. No exact ROM hashes, cartridge revisions, programmed-image verification, host board revisions, firmware/core versions, cable identities, machine state, error text, timestamps, repetition counts, or artifact hashes for the retained compatibility runs.
-4. No documented ordinary threaded straight-stitch baseline.
-5. No complete OSCR logs and source/redump hash pairs.
-6. No protected passive breakout, voltage survey, or project-generated raw capture.
+1. No photographs or dimensions of the broken feed-dog slider notch, engaged/disengaged positions, or durable repair.
+2. No photograph or authoritative identification of the broken needle or validated replacement needle system/orientation.
+3. No synchronized record of machine motion, red-indicator cadence, Game Boy screen, mechanical state, threading state, and exact sequence for the fault run.
+4. No row-level mapping from workbook entries to exact experiment and evidence IDs.
+5. No exact chronology resolving differing Pocket and FP-GBC observations across Singer and Kirby runs.
+6. No exact ROM hashes, cartridge revisions, programmed-image verification, host board revisions, firmware/core versions, cable identities, machine state, error text, timestamps, repetition counts, or artifact hashes for the retained compatibility runs.
+7. No documented ordinary threaded straight-stitch baseline.
+8. No complete OSCR logs and source/redump hash pairs.
+9. No protected passive breakout, voltage survey, or project-generated raw capture.
 
 ## Immediate actions
 
-1. Reconstruct each 2026-04-24 and 2026-05-03 run as a separate experiment record.
-2. Preserve the workbook unchanged and create a redistribution-safe CSV or Markdown derivative linked to row-level evidence IDs.
-3. Retest one exact image/cart/host combination at a time, recording machine power state, attachments, thread state, selected operation, exact screen text, and repetition count.
-4. Keep boot, UI, link initialization, upload start, upload completion, physical motion, and stitch formation as separate fields.
-5. Reproduce OSCR reads and both write/redump paths with complete logs and SHA-256 comparisons.
-6. Document an ordinary threaded stitch before interpreting protocol-driven motion as sewing success.
-7. Validate a protected passive fixture and voltage compatibility before active hardware is connected.
+1. Photograph the broken slider/notch, measure it, record engaged and disengaged positions, and document a reversible retention or durable repair.
+2. Identify the correct needle system from an authoritative source, install a known-good needle in the correct orientation, and verify unobstructed handwheel rotation before powered operation.
+3. Repeat the ramp-stop-red behavior only after the needle and feed mechanism are corrected. Record synchronized video of machine motion, indicator cadence, Game Boy screen, thread route, bobbin, presser foot, and exact action.
+4. Capture the exact upper-machine error graphic, software filename and SHA-256, loader configuration, machine indicator state, and immediately preceding action.
+5. Reconstruct each 2026-04-24 and 2026-05-03 compatibility run as a separate experiment record.
+6. Preserve the workbook unchanged and create a redistribution-safe CSV or Markdown derivative linked to row-level evidence IDs.
+7. Retest one exact image/cart/host combination at a time, recording machine power state, attachments, thread state, selected operation, exact screen text, and repetition count.
+8. Keep boot, UI, link initialization, upload start, upload completion, physical motion, and stitch formation as separate fields.
+9. Reproduce OSCR reads and both write/redump paths with complete logs and SHA-256 comparisons.
+10. Document an ordinary threaded stitch before interpreting protocol-driven motion as sewing success.
+11. Validate a protected passive fixture and voltage compatibility before active hardware is connected.
 
 ## Protocol implementation gate
 
