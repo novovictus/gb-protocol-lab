@@ -1,0 +1,31 @@
+# OS/editor
+.DS_Store
+Thumbs.db
+*.swp
+*.swo
+.vscode/
+.idea/
+
+# Build/temp
+build/
+dist/
+tmp/
+temp/
+*.log
+
+# Python
+__pycache__/
+*.py[cod]
+.venv/
+venv/
+
+# ROM images and potentially proprietary dumps
+*.gb
+*.gbc
+*.gba
+*.rom
+*.bin
+
+# Large captures
+*.pcap
+*.pcapng
