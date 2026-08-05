@@ -25,7 +25,7 @@ hardware/      Inventory, fixtures, and hardware notes
 captures/      Raw and processed protocol captures
 artifacts/     Logs, manifests, hashes, and lawful evidence
 firmware/      Embedded implementations
- tools/         Analysis and capture utilities
+tools/         Analysis and capture utilities
 ```
 
 ## Claim boundary
