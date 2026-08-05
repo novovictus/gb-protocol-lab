@@ -6,7 +6,7 @@ Canonical record for project history, evidence, decisions, and reconstructed exp
 
 - `observed`: directly supported by committed project artifacts
 - `observed/reported`: direct operator observation without complete committed artifacts
-- `reproduced`: prior behavior independently repeated with project evidence
+- `reproduced`: external behavior independently repeated with project evidence
 - `inferred`: interpretation drawn from observations
 - `prior-art`: external published claim
 - `code-derived`: behavior identified from an implementation
@@ -30,6 +30,14 @@ Classification: `prior-art preservation`.
 Shonumi's article and GBE+ were recognized as substantial prior work. Future implementation must attribute prior art and distinguish reproduction from discovery.
 
 Classification: `decision` and `prior-art preservation`.
+
+### 2026-05-03: ordinary sewing setup supplies
+
+Reported result: Amazon sewing-supply purchases were returned and correct supplies were acquired locally from a craft store. The set included correct bobbins, 100% polyester all-purpose thread, a needle multipack, and Singer oil.
+
+Classification: `observed/reported`.
+
+Boundary: exact bobbin class, needle system, package identity, and manual-backed compatibility are not yet artifact-backed. The bobbin-winder behavior was interpreted as spring-loaded retention rather than free-spinning full-depth seating, but authoritative manual confirmation is still needed.
 
 ### Historical work, exact dates not recovered
 
@@ -66,6 +74,8 @@ Reported results:
 - `HEADER CHECKSUM ERROR` was treated as compatible with a blank or uninitialized image, while `Flash ID: 0101 / Unknown flashrom` was the operative blocker before selecting the CFI path.
 
 Classification: write/redump results are `observed/reported`; diagnostic interpretation is `inferred`.
+
+Source-intake rule: every future OSCR or programmer session must record source image provenance, exact filename, byte length, SHA-256, tool and firmware versions, cartridge identity, profile selection, write-enable setting, console output, redump hash, and byte-for-byte comparison result. A cartridge filename alone is not provenance.
 
 #### Cartridge compatibility and software inventory
 
@@ -204,6 +214,22 @@ The graphic may refer to upper threading, spool routing, take-up, tension, or an
 
 Required evidence: exact screen capture, software filename and SHA-256, cartridge/loader configuration, machine indicator state, thread route, presser-foot state, and immediately preceding action.
 
+### Reconstructed compatibility experiments
+
+The workbook and retained history must be decomposed into separate runs rather than one blended result. At minimum preserve these as distinct experiments:
+
+- Singer image on FunnyPlaying cart with original GBC;
+- Singer image on FunnyPlaying cart with Game Boy Pocket;
+- Singer image on FunnyPlaying cart with FP-GBC;
+- Kirby image on InsideGadgets cart with original GBA;
+- Kirby image on InsideGadgets cart with Game Boy Pocket;
+- Kirby image on InsideGadgets cart with original GBC;
+- Kirby image on InsideGadgets cart with FP-GBC;
+- EZ-Flash Jr boot and physical-machine run on stock GBC;
+- EZ-Flash Jr failure on FP-GBC.
+
+For every run record write completion, redump equality, host recognition, boot, UI, link initialization, upload start, upload completion, machine motion, and stitch formation as separate fields. Do not merge observations from different dates, ROM revisions, cartridges, or hosts.
+
 ## Compatibility result model
 
 Every compatibility run must record these separately:
@@ -252,6 +278,10 @@ Do not interpret protocol-driven motion while the machine has unresolved mechani
 
 Do not implement the protocol merely because prior art exists. First establish ordinary machine operation, exact identities, deterministic cartridge verification, protected passive measurement, immutable captures, and claim-level provenance.
 
+### Source-before-claim rule
+
+Before relying on an external article, ROM catalog entry, emulator behavior, hardware manual, or source-code implementation, preserve the exact source identity. Record URL or file origin, archive location, access date, revision or commit, license, relevant section or symbol, extracted claim, and independent reproduction status. Search-engine snippets and memory are discovery aids, not evidence.
+
 ## Evidence register
 
 | ID | Evidence | Class | Status |
@@ -261,12 +291,20 @@ Do not implement the protocol merely because prior art exists. First establish o
 | EVD-20260804-003 | OSCR assembled | observed/reported | awaiting artifacts |
 | EVD-20260804-004 | ROM dumping works | observed/reported | awaiting logs and hashes |
 | EVD-20260804-005 | Save dumping works | observed/reported | awaiting logs and hashes |
+| EVD-20260503-001 | Sewing supplies acquired locally | observed/reported | package photos and exact identities missing |
+| EVD-20260503-002 | Bobbin-winder spring-retention interpretation | inferred | authoritative manual confirmation missing |
 | EVD-20260804-009 | FunnyPlaying write/redump | observed/reported | awaiting artifacts |
 | EVD-20260804-010 | InsideGadgets CFI write/redump | observed/reported | awaiting artifacts |
-| EVD-20260804-015 | Updated EZ-Flash Jr boots target set on stock GBC | observed/reported | exact matrix incomplete |
+| EVD-20260804-011 | Sewing software boots/screenshots | observed/reported | hashes and exact records missing |
+| EVD-20260804-012 | R4, GameYob, and GBARunner2 work | observed/reported | separate from IZEK evidence |
+| EVD-20260804-013 | R36S ROM recovery | observed/reported | side investigation |
+| EVD-20260804-014 | Kingston SD-card failure | observed/reported | cause unknown |
+| EVD-20260804-015 | Updated EZ-Flash Jr boots target set on stock GBC | observed/reported | exact matrix missing |
+| EVD-20260804-016 | EZ-Flash Jr fails on FPGA GBC but works on original hardware | observed/reported | exact error record missing |
+| EVD-20260804-017 | Six target images plus two controls booted on stock GBC | observed/reported | exact names and hashes incomplete |
 | EVD-20260804-018 | EZ-Flash Jr path caused IZEK zig-zag needle motion | observed/reported | experiment artifacts missing |
 | EVD-20260804-019 | Thread removal led to a thread-related halt | observed/reported | source and meaning unverified |
-| EVD-20260804-020 | End-to-end stock-GBC/EZ-Flash Jr/IZEK path functioned | inferred | narrow configuration only |
+| EVD-20260804-020 | End-to-end stock-GBC/EZ-Flash Jr/IZEK path functioned | inferred from reported observations | narrow configuration only |
 | EVD-20260804-021 | Valid threaded stitch | unverified | not established |
 | EVD-20260804-022 | Reproduction cartridges ordered | reported state | pending receipt and validation |
 | EVD-20260804-023 | Feed-dog slider notch broken | observed/reported | photographs and dimensions missing |
