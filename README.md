@@ -1,68 +1,78 @@
 # Game Boy Protocol Lab
 
-Research, documentation, and tooling for reverse engineering Game Boy communication protocols, peripherals, and undocumented hardware behavior.
+An engineering notebook for preservation, measurement, and reverse engineering of Game Boy communication protocols, peripherals, cartridges, and undocumented hardware behavior.
 
-## Purpose
+The initial research target is the Singer IZEK / Jaguar JN sewing-machine interface. The repository is intentionally structured around evidence and reproducibility rather than a finished software product.
 
-This repository is an engineering notebook and implementation workspace for protocol-level investigation of the Game Boy ecosystem.
+## Current phase
 
-The initial focus is communication between Game Boy software and external hardware, beginning with the Singer IZEK / Jaguar JN sewing-machine family and its Game Boy interface. The scope may expand to related serial, cartridge, timing, peripheral, and hardware research as evidence accumulates.
+The project is in repository setup, asset inventory, prior-art mapping, and evidence-preservation work.
 
-## Current status
-
-The repository is in the initial documentation, preservation, and evidence-gathering phase.
-
-Known prior work has been identified:
-
-- Shonumi published detailed reverse-engineering research covering the Singer IZEK and related Jaguar sewing-machine interface.
-- Shonumi's GBE+ emulator includes support for the Singer IZEK 1500, Jaguar JN-100, and Jaguar JN-2000.
-- A dated Internet Archive snapshot of the article was captured when the prior work was discovered.
-- OSCR cartridge-dumping hardware and compatible cartridges are available for independent inspection and preservation work.
-- Physical Game Boy and related hardware are available for future testing.
-
-No independent protocol implementation, validated communication capture, or confirmed hardware reproduction is committed here yet.
+No independent protocol implementation, validated communication capture, or confirmed hardware reproduction is claimed yet.
 
 See:
 
-- [Current status](docs/STATUS.md)
+- [Project status](docs/STATUS.md)
+- [Research methodology](docs/METHODOLOGY.md)
+- [Evidence register](docs/EVIDENCE.md)
 - [References and prior art](docs/REFERENCES.md)
 - [Roadmap](docs/ROADMAP.md)
 - [Research log](docs/RESEARCH-LOG.md)
 
 ## Research standard
 
-This project will explicitly distinguish:
+Every technical claim should identify its basis:
 
-- direct observation from physical hardware;
-- independently reproduced behavior;
-- inference based on captures, software, or documentation;
-- prior published reverse engineering;
-- code adapted from an existing implementation;
-- unresolved hypotheses and open questions.
+| Label | Meaning |
+| --- | --- |
+| `observed` | Directly measured or recorded by this project |
+| `reproduced` | Prior behavior independently repeated by this project |
+| `inferred` | Conclusion drawn from evidence but not directly observed |
+| `prior-art` | Reported by an external source |
+| `code-derived` | Determined by reading an existing implementation |
+| `unverified` | Plausible but not yet supported adequately |
+| `superseded` | Retained for history but replaced by stronger evidence |
 
-Claims should be supported by captures, measurements, source references, photographs, dumps, or reproducible procedures where possible.
+Claims should reference an evidence ID, experiment ID, source citation, artifact hash, or reproducible procedure.
 
 ## Repository layout
 
 ```text
-docs/          Research notes, protocol documentation, status, and references
+docs/          Status, methodology, evidence register, references, and research log
 captures/      Raw and processed communication captures
-hardware/      Hardware notes, pinouts, fixtures, and test configurations
+hardware/      Hardware inventory, pinouts, fixtures, and test configurations
 tools/         Host-side analysis, conversion, and capture utilities
 firmware/      Embedded or target-side implementations
-artifacts/     Reproducible outputs and supporting evidence
+artifacts/     Reproducible outputs, manifests, hashes, and distributable evidence
 ```
 
-## Attribution and licensing
+Each experimental session should receive a stable identifier such as `EXP-YYYYMMDD-001`. Evidence records use `EVD-YYYYMMDD-001`. Hardware inventory records use `HW-###`.
 
-Research derived from or informed by Shonumi's work must be attributed explicitly.
+## Provenance and attribution
 
-GBE+ is GPLv2-licensed. Directly copied or adapted GBE+ code must retain applicable notices and comply with that license. Independent implementations should document the prior work that informed them and avoid presenting established findings as original discoveries.
+Research derived from or informed by Shonumi's Singer IZEK / Jaguar JN work must be attributed explicitly.
 
-No repository-wide software license has been selected yet.
+GBE+ is GPLv2-licensed. Directly copied or adapted GBE+ code must retain applicable notices and comply with that license. A clean-room or independently written implementation should still document the prior art that informed the research and must not present established findings as original discoveries.
 
-## Scope boundaries
+No repository-wide software license has been selected yet. Do not add third-party code until its source and license are recorded.
 
-This repository is intended for preservation, interoperability, repair, research, and documentation.
+## Artifact policy
 
-It is not intended to distribute copyrighted commercial ROM images, proprietary software, or other material without clear permission to redistribute.
+Do not commit copyrighted commercial ROM images, proprietary firmware, private keys, credentials, or material without clear redistribution permission.
+
+For non-redistributable inputs, commit metadata where lawful and useful:
+
+- acquisition or dumping procedure;
+- tool and version;
+- hardware identity;
+- date and operator;
+- byte length;
+- cryptographic hashes;
+- photographs or excerpts only when redistribution is permitted;
+- relationships between source inputs and generated artifacts.
+
+Large captures should be stored externally or through an appropriate large-file mechanism, with manifests and hashes retained here.
+
+## Scope
+
+This repository supports preservation, interoperability, repair, research, and documentation. It is not a ROM distribution project and it does not currently claim a complete protocol specification or working replacement interface.
