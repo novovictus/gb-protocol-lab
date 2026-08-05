@@ -55,7 +55,8 @@ Repository:
 Known repository-level relevance recorded by this project:
 
 - sewing-machine-related support exists;
-- the current notebook associates that support with Singer IZEK 1500, Jaguar JN-100, and Jaguar JN-2000.
+- the current notebook associates that support with Singer IZEK 1500, Jaguar JN-100, and Jaguar JN-2000;
+- prior review identified `src/dmg/sio_data.h`, `src/dmg/sio.h`, and `src/dmg/sio.cpp` as likely relevant paths, but no commit, symbol, or line range is pinned yet.
 
 Before relying on implementation details, record:
 
@@ -64,6 +65,8 @@ Before relying on implementation details, record:
 - applicable license notice;
 - whether the finding is an emulator design choice, article-derived behavior, or behavior tied to hardware evidence;
 - exact claim extracted into the evidence register in `docs/NOTEBOOK.md`.
+
+The listed paths are discovery leads only. They are not claim-level citations and must be reverified against a pinned revision before use.
 
 GBE+ is GPLv2-licensed. Direct copying or adaptation carries GPL obligations. Independent implementation should still acknowledge the source of prior knowledge.
 
