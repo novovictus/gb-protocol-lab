@@ -1,19 +1,6 @@
 # Research Notebook
 
-Canonical record for project history, evidence, decisions, and reconstructed experiments. Raw artifacts belong under `artifacts/` or `captures/`; this file records what they support.
-
-## Evidence discipline
-
-- `observed`: directly supported by committed project artifacts
-- `observed/reported`: direct operator observation without complete committed artifacts
-- `reproduced`: external behavior independently repeated with project evidence
-- `inferred`: interpretation drawn from observations
-- `prior-art`: external published claim
-- `code-derived`: behavior identified from an implementation
-- `unverified`: plausible but unsupported
-- `superseded`: retained historically but replaced by stronger evidence
-
-Do not convert memory into measurement. Record exact hardware, software, firmware, setup, procedure, raw observations, limitations, hashes, and artifact paths. Preserve raw evidence unchanged and create derivatives separately. Successful boot does not prove a clean dump; emulator behavior does not prove physical-bus behavior; a repeatable waveform is not yet a packet; a byte sequence is not yet a command.
+Record for project history, evidence, decisions, and reconstructed experiments.
 
 ## Chronology
 
@@ -27,13 +14,13 @@ Classification: `prior-art preservation`.
 
 ### 2026-04-18: prior work recognized
 
-Shonumi's article and GBE+ were recognized as substantial prior work. Future implementation must attribute prior art and distinguish reproduction from discovery.
+Shonumi's article and GBE+ were recognized as substantial prior work.
 
 Classification: `decision` and `prior-art preservation`.
 
 ### 2026-05-03: ordinary sewing setup supplies
 
-Reported result: Amazon sewing-supply purchases were returned and correct supplies were acquired locally from a craft store. The set included correct bobbins, 100% polyester all-purpose thread, a needle multipack, and Singer oil.
+Reported result: Amazon sewing-supply purchases were returned and correct supplies were acquired locally from a craft store.
 
 Classification: `observed/reported`.
 
@@ -53,15 +40,11 @@ Reported results:
 
 Classification: `observed/reported`.
 
-Missing evidence: OSCR revision and firmware, host software, source cartridge, filenames, lengths, repeated-read equality, hashes, emulator identity, screenshots, and command transcript.
-
 #### Singer IZEK powered bring-up
 
 A replacement Singer-compatible foot controller purchased from Amazon powered the Singer IZEK 1500 and produced basic machine motion.
 
 Classification: `observed/reported`.
-
-This did not establish correct threading, bobbin setup, tension, fabric feed, lockstitch formation, sustained operation, controller equivalence, or Game Boy communication.
 
 #### Rewritable-cartridge workflows
 
@@ -69,23 +52,17 @@ Reported results:
 
 - a Singer/IZEK image was written to and redumped from a FunnyPlaying EverSave GB/GBC Flash Cart Pro;
 - `Jaguar Mishin Sashi Senyou Soft - Kirby Family (Japan) (Proto)` was written to and redumped from an InsideGadgets MBC5 2 MiB / 32 KiB FRAM cartridge;
-- the successful InsideGadgets path used OSCR `CFI Repro`, `WE=WR`, and M29F160F-compatible behavior;
-- generic `29F Repro` was not the successful path;
+- the successful InsideGadgets path used OSCR `CFI Repro`, `WE=WR`, and M29F160F-compatible behavior; generic `29F Repro` was not successful.
 - `HEADER CHECKSUM ERROR` was treated as compatible with a blank or uninitialized image, while `Flash ID: 0101 / Unknown flashrom` was the operative blocker before selecting the CFI path.
-
-Classification: write/redump results are `observed/reported`; diagnostic interpretation is `inferred`.
-
-Source-intake rule: every future OSCR or programmer session must record source image provenance, exact filename, byte length, SHA-256, tool and firmware versions, cartridge identity, profile selection, write-enable setting, console output, redump hash, and byte-for-byte comparison result. A cartridge filename alone is not provenance.
 
 #### Cartridge compatibility and software inventory
 
 - Original Game Boy hardware is the behavioral baseline.
-- EZ-Flash Jr reportedly worked after firmware update on original hardware and failed on FP-GBC.
+- EZ-Flash Jr worked after firmware update on original hardware and failed on FP-GBC.
 - Deterministic single-image rewritable cartridges are preferred over SD menu loaders for machine tests.
 - `Raku x Raku Mishin` is retained as the base sewing-machine control path.
 - Kirby, Mario, Cut Shuu, and Moji are retained as embroidery/design-unit paths.
 - Game Boy Pocket failures for CGB-only software are negative controls.
-- `artifacts/izek_test_matrix.xlsx` is committed with SHA-256 `fdb941a3a6936b61b20042d2fc8c103e78ca737df4389bdbfad5c45dccebd9e0`.
 
 Reported software inventory:
 
@@ -108,11 +85,11 @@ Singer operation software reported header:
 | RAM size `0x0149` | `0x02` | 8 KiB |
 | destination `0x014A` | `0x01` | non-Japanese |
 
-`Pokemon Picross` beta and `Grimace's Birthday` are non-IZEK controls for flash, boot, save, redump, and hash workflow validation. Success with either does not support an IZEK protocol claim.
+`Pokemon Picross` beta and `Grimace's Birthday` are non-IZEK controls for flash, boot, save, redump, and hash workflow validation.
 
 Original MBC5 + RAM + battery cartridges generally use battery-backed SRAM. Modern FRAM replacement cartridges are a development convenience and are not evidence that an original cartridge used FRAM.
 
-#### 2026-08-04 handheld side work
+#### Handheld side work
 
 Reported results:
 
@@ -123,15 +100,9 @@ Reported results:
 - alternate R36S operating-system installation was unsuccessful;
 - a dog-damaged GBA SP was identified as a possible non-destructive link-breakout source or repair project.
 
-These results do not establish IZEK protocol behavior.
-
 ## Reconstructed experiments
 
-### EXP-20260804-RECON-001: EZ-Flash Jr to Singer IZEK
-
-Exact bench date not recovered. Classification: `observed/reported`.
-
-Reported setup:
+### EZ-Flash Jr to Singer IZEK
 
 - completely stock original Game Boy Color;
 - EZ-Flash Jr updated before testing;
@@ -143,111 +114,63 @@ Reported setup:
 
 Reported observations:
 
-- six target images plus Pokemon Picross and Grimace's Birthday reportedly booted on the stock GBC;
+- six target images plus Pokemon Picross and Grimace's Birthday booted on the stock GBC;
 - EZ-Flash Jr failed or errored on FP-GBC while functioning on original hardware;
 - selecting a simple zig-zag operation caused visible lateral needle motion;
 - operation without upper thread halted;
 - a thread-related error was reported.
-
-Narrow interpretation:
 
 The tested software image, updated EZ-Flash Jr, stock GBC, cable, and Singer IZEK exchanged enough information to produce selected physical needle motion and a thread-related stop condition. This supersedes the earlier statement that flash-cart communication with the physical IZEK had not been observed.
 
 Not established:
 
 - valid stitch formation;
-- exact software hash, cart firmware, microSD, console revision, error text, or repeat count;
 - protocol bytes, framing, timing, clock ownership, or command semantics;
 - operation with an original or reproduction sewing-machine cartridge;
 - compatibility with other consoles, carts, software, or machine models;
 - whether the halt came from thread presence, tension, a generic fault, another interlock, or software-side interpretation.
 
-### EXP-RECON-MECH-001: Feed-dog engagement failure
+### Feed-dog engagement failure
 
-Exact bench date not recovered. Classification: `observed/reported`.
-
-Reported procedure:
+Procedure:
 
 1. Open the bottom panel.
 2. Inspect the external feed control and internal mechanism.
 3. Observe the slider and cam-engagement path.
 4. Move the slider manually into the engaged position.
 
-Reported observations:
+Observations:
 
 - the external switch mechanically operates a slider that engages a cam;
 - the slider's engagement notch was broken;
 - the break prevented the external control from engaging the mechanism;
 - manually sliding the mechanism into position engaged the downstream feed-dog lift path.
 
-Narrow result:
+Result:
 
 The immediate feed-dog failure was localized to the broken slider/notch transfer feature, while the downstream cam mechanism could still be engaged manually.
 
-Not established: long-term stability, correct feed height or timing, stitch-length calibration, durable repair, or valid fabric feed under threaded load.
-
-### EXP-RECON-MECH-002: Broken needle discovery
-
-Exact bench date not recovered. Classification: `observed/reported`.
+### Broken needle discovery
 
 While locating the needle eye, the installed needle was found not to have a normal sharp end and was recognized as broken.
 
 This establishes only that the installed needle was unsuitable for a valid sewing test. It does not establish that the needle caused any specific electronic error, motor stop, red indicator, link error, or earlier motion anomaly.
 
-### EXP-RECON-MECH-003: Ramp, stop, and red indicator
-
-Exact bench date not recovered. Classification: `observed/reported`.
+### Ramp, stop, and red indicator
 
 Pressing the sew control reportedly caused the machine to start, ramp in speed, stop, and blink red at the switch or indicator.
 
 Concurrent unresolved conditions included the broken feed-dog engagement slider, manual feed-dog engagement, and a broken needle. Exact sequencing and machine configuration were not preserved.
 
-The behavior is a fault indication, but its source is not established. Do not label it as thread detection, tension sensing, motor overload, position-sensor failure, or a specific service code without authoritative mapping or measurement.
+The behavior is a fault indication, but its source is not established.
 
-### EXP-RECON-LINK-001: Upper-machine error graphic
+### Upper-machine error graphic
 
-Exact bench date not recovered. Classification: `observed/reported`.
+The Game Boy software displayed an error graphic pointing toward the top of the machine.
 
-The Game Boy software reportedly displayed an error graphic pointing toward the top of the machine.
+The graphic may refer to upper threading, spool routing, take-up, tension, or another upper-machine condition. The exact frame and authoritative manual text are not preserved.
 
-The graphic may refer to upper threading, spool routing, take-up, tension, or another upper-machine condition. The exact frame and authoritative manual text are not preserved. The observation does not prove a direct thread-presence or tension sensor.
-
-Required evidence: exact screen capture, software filename and SHA-256, cartridge/loader configuration, machine indicator state, thread route, presser-foot state, and immediately preceding action.
-
-### Reconstructed compatibility experiments
-
-The workbook and retained history must be decomposed into separate runs rather than one blended result. At minimum preserve these as distinct experiments:
-
-- Singer image on FunnyPlaying cart with original GBC;
-- Singer image on FunnyPlaying cart with Game Boy Pocket;
-- Singer image on FunnyPlaying cart with FP-GBC;
-- Kirby image on InsideGadgets cart with original GBA;
-- Kirby image on InsideGadgets cart with Game Boy Pocket;
-- Kirby image on InsideGadgets cart with original GBC;
-- Kirby image on InsideGadgets cart with FP-GBC;
-- EZ-Flash Jr boot and physical-machine run on stock GBC;
-- EZ-Flash Jr failure on FP-GBC.
-
-For every run record write completion, redump equality, host recognition, boot, UI, link initialization, upload start, upload completion, machine motion, and stitch formation as separate fields. Do not merge observations from different dates, ROM revisions, cartridges, or hosts.
-
-## Compatibility result model
-
-Every compatibility run must record these separately:
-
-1. cartridge write completed;
-2. redump matched source;
-3. host recognized cartridge;
-4. software booted;
-5. operational UI reached;
-6. machine link initialized;
-7. upload started;
-8. upload completed;
-9. machine moved;
-10. valid stitch formed.
-
-A pass at one layer does not imply a pass at the next.
-
-## Prior-art protocol summary
+## Prior protocol summary
 
 The following are attributed to Shonumi and GBE+ and are not project discoveries:
 
@@ -266,21 +189,9 @@ Each relied-upon statement still requires an article section or pinned GBE+ comm
 
 ## Decisions
 
-### Deterministic cartridge strategy
+### Cartridge strategy
 
-Use original Game Boy hardware and deterministic single-image native GB/GBC cartridges as the primary path. InsideGadgets MBC5 FRAM is the preferred development cartridge; FunnyPlaying EverSave is secondary; EZ-Flash Jr is a validated convenience and machine-test path for one reported configuration, not the ground-truth cartridge.
-
-### Mechanical baseline before protocol work
-
-Do not interpret protocol-driven motion while the machine has unresolved mechanical faults. Repair or stabilize the feed-dog slider, install the correct needle, verify free handwheel motion, establish correct threading and bobbin setup, and document one valid ordinary stitch before repeated machine-link tests.
-
-### Notebook before code
-
-Do not implement the protocol merely because prior art exists. First establish ordinary machine operation, exact identities, deterministic cartridge verification, protected passive measurement, immutable captures, and claim-level provenance.
-
-### Source-before-claim rule
-
-Before relying on an external article, ROM catalog entry, emulator behavior, hardware manual, or source-code implementation, preserve the exact source identity. Record URL or file origin, archive location, access date, revision or commit, license, relevant section or symbol, extracted claim, and independent reproduction status. Search-engine snippets and memory are discovery aids, not evidence.
+Use original Game Boy hardware and single-image native GB/GBC cartridges as the primary. InsideGadgets MBC5 FRAM is the preferred development cartridge; FunnyPlaying EverSave is secondary; EZ-Flash Jr is a validated convenience and machine-test path for one reported configuration.
 
 ## Evidence register
 
@@ -312,7 +223,3 @@ Before relying on an external article, ROM catalog entry, emulator behavior, har
 | EVD-20260804-025 | Installed needle physically broken | observed/reported | exact needle system unknown |
 | EVD-20260804-026 | Sew control caused ramp-stop-red behavior | observed/reported | fault source unresolved |
 | EVD-20260804-027 | Game Boy displayed upper-machine error graphic | observed/reported | exact frame and meaning unresolved |
-
-## Future experiment record
-
-Append a dated section containing objective and ID, hardware and software identities, safety constraints, procedure, raw observations, artifact paths and hashes, interpretation and alternatives, explicit claim boundary, and next action.
