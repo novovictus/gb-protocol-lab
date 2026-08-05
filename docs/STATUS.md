@@ -4,50 +4,62 @@ Last updated: 2026-08-04
 
 ## Phase
 
-Initial repository framing, prior-art review, and evidence preservation.
+Repository framing, prior-art review, asset inventory preparation, and evidence-preservation planning.
 
 ## Active research target
 
 Singer IZEK / Jaguar JN Game Boy sewing-machine interface.
 
-Known related systems include:
+Known related systems named in the current repository:
 
 - Singer IZEK 1500
 - Jaguar JN-100
 - Jaguar JN-2000
 
-## Confirmed resources
+## Repository-confirmed resources
 
-- Public reverse-engineering article by Shonumi.
-- Archived snapshot of that article.
+The current repository records the following resources as available or identified:
+
+- Shonumi's public reverse-engineering article.
+- A dated Internet Archive snapshot of that article.
 - Public GBE+ source containing sewing-machine support.
 - OSCR cartridge-dumping hardware.
 - Physical Game Boy and cartridge hardware suitable for future experiments.
 
-## Confirmed findings
+These entries document project resources and prior art. They are not protocol findings.
 
-At this stage, the following are confirmed as prior art rather than independent findings:
+## Current claim boundary
 
-- A protocol-level reverse-engineering effort has already been published by Shonumi.
-- GBE+ implements emulated support for the Singer IZEK 1500 and related Jaguar machines.
-- The implementation appears to include a sewing-machine-specific serial state model, buffers, status handling, and coordinate or stitch processing.
+No project-generated capture, protocol reproduction, electrical measurement, cartridge hash, hardware inventory, decoder, firmware implementation, or sewing-machine communication test is currently present in the repository.
 
-## Not yet established independently
+The repository therefore makes no independent technical claim about:
 
-- Electrical signaling characteristics on owned hardware.
-- Exact pinout and cable wiring for the available hardware.
-- Packet captures produced by this project.
-- Reproduction of the documented handshake or command flow.
-- Independent coordinate or stitch decoding.
-- Compatibility differences among IZEK 1500, JN-100, and JN-2000.
-- A standalone host, embedded, or Game Boy-side implementation.
+- connector pinout;
+- voltage levels;
+- signaling direction;
+- serial clock ownership;
+- packet format;
+- command semantics;
+- timing;
+- status values;
+- coordinate or stitch encoding;
+- behavioral differences among machine models.
 
-## Immediate next steps
+## Work products now defined
 
-1. Inventory all physical hardware, cartridges, cables, adapters, and dumping tools.
-2. Record identifying labels, board revisions, cartridge hashes, and photographs.
-3. Dump relevant cartridges with OSCR and document the procedure and hashes.
-4. Review Shonumi's article and GBE+ implementation in parallel.
-5. Produce a protocol evidence table separating prior art, code-derived inference, and independent observation.
-6. Identify a safe capture method before connecting test equipment.
-7. Establish a chronological research log before active protocol experiments.
+The notebook structure defines:
+
+- claim and evidence labels;
+- stable experiment, evidence, and hardware identifiers;
+- inventory and experiment templates;
+- artifact manifests and hash requirements;
+- explicit separation of prior art, code-derived findings, inference, and observation.
+
+## Immediate next actions
+
+1. Complete the physical asset inventory using `hardware/INVENTORY.md`.
+2. Create the first experiment record before operating OSCR or attaching measurement equipment.
+3. Record cartridge dump metadata and hashes without committing restricted ROM content.
+4. Map article statements and GBE+ behavior into `docs/EVIDENCE.md` as `prior-art` or `code-derived`.
+5. Document the intended electrical capture setup and safety assumptions before connecting it.
+6. Add project-generated observations only after artifacts and procedures exist.
