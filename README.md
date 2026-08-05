@@ -43,7 +43,3 @@ The reported physical interaction establishes only that the tested software imag
 ## Attribution and licensing
 
 This work builds on prior reverse engineering by Shonumi concerning the Singer IZEK and Jaguar JN Game Boy sewing-machine interface.
-
-GBE+ is GPLv2-licensed. Copied or adapted code must retain applicable notices and comply with that license. Independently written work must still document the prior knowledge that informed it.
-
-No repository-wide software license has been selected yet. Do not commit commercial ROMs, proprietary firmware, credentials, or material without redistribution permission.
