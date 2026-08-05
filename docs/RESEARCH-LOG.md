@@ -10,37 +10,51 @@ This file is chronological. Detailed experiments live under `docs/experiments/` 
 
 Classification: `prior-art preservation`.
 
-## Historical work predating repository creation
+## Historical work, exact dates pending recovery
 
-Exact bench dates have not yet been normalized from the earlier project record.
+### OSCR bring-up and dump validation
 
-- Acquired a Singer IZEK 1500 without its original foot controller, Game Boy, or cartridge.
-- Assembled and validated OSCR for Game Boy ROM/save dumping and supported rewritable-cartridge programming.
-- Flashed and redumped an InsideGadgets MBC5 FRAM cartridge with a Jaguar Kirby prototype image.
-- Flashed and redumped a FunnyPlaying EverSave cartridge with the Singer/IZEK operation image.
-- Updated and exercised an EZ-Flash Jr successfully on original Game Boy hardware.
-- Recorded EZ-Flash Jr incompatibility on the FPGA Game Boy Color platform.
-- Classified the Singer operation image and Japanese sewing-software set for base-machine versus embroidery-unit use.
-- Selected original Game Boy hardware as the current execution baseline.
-- Identified Flipper Zero as a possible later active link endpoint, not as a validated IZEK implementation.
+- OSCR was assembled.
+- Game Boy ROM dumping succeeded.
+- Game Boy save dumping succeeded.
+- Output was validated in an emulator.
 
-Classification: `reported historical project work`.
+Classification: `observed/reported`.
 
-These entries remain `reported` until primary logs, photographs, hashes, tool versions, and redump comparisons are attached. Their placement here records that the work predates repository creation; it does not assign invented experiment dates.
+See: `experiments/EXP-20260804-001-oscr-dump-validation.md`.
+
+### Singer IZEK powered bring-up
+
+- A replacement foot controller was obtained.
+- Basic powered sewing-machine functionality was observed.
+- Correct threading, bobbin, spool, and stitch formation remained unknown.
+- The physical validation sequence was explicitly set as: prove ordinary sewing first, then test intended Game Boy hardware or a justified facsimile, then instrument communication.
+
+Classification: `observed/reported` plus `decision`.
+
+See: `experiments/EXP-20260804-002-izek-powered-bringup.md`.
+
+### Cartridge compatibility and software classification
+
+- Original Game Boy hardware was selected as the behavioral baseline.
+- EZ-Flash Jr reportedly worked on original hardware after firmware update and failed on FPGA GBC.
+- Deterministic MBC5 flash targets were selected for machine tests and redump verification.
+- The canonical matrix classified `Raku x Raku - Mishin` as the base machine-control path.
+- Kirby and related titles were moved to the embroidery-unit path rather than treated as simple link failures.
+- Game Boy Pocket behavior for CGB-only software was retained as expected negative-control behavior.
+- DS R4 Pokemon deployment was recognized as a separate project thread.
+
+Classification: `observed/reported` and `decision`.
 
 ## 2026-08-04
 
-- Created `gb-protocol-lab`.
-- Selected a protocol-focused scope rather than an IZEK-only repository name.
+- Created or normalized `gb-protocol-lab` as a protocol-focused engineering notebook.
 - Recorded Shonumi's article and GBE+ as prior art.
-- Defined the project as an engineering notebook.
-- Established requirements to distinguish observation, inference, prior art, and adapted code.
-- Added notebook schemas for claims, evidence, inventory, experiments, and artifact integrity.
-- Imported the earlier hardware, cartridge, ROM-classification, and experiment-planning state as `reported` history.
+- Established requirements to distinguish observation, inference, prior art, code-derived findings, and historical reports.
+- Reconciled repository status with retained bench history.
+- Kept protocol code deferred pending machine validation, intended-hardware tests, and project-generated capture evidence.
 
 Classification: `repository-state`.
-
-No new physical experiment, cartridge dump, protocol capture, or independent protocol finding is recorded for this date.
 
 ## Entry template
 
