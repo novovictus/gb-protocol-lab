@@ -10,34 +10,15 @@ A completely stock Game Boy Color running Singer/IZEK software from an updated E
 
 This is retained as `observed/reported` until the exact software hash, EZ-Flash Jr firmware, microSD identity, console revision, machine setup, dated media, and complete repeat record are committed. It establishes an end-to-end behavioral path for one configuration, not protocol semantics, cartridge equivalence, or a valid threaded stitch.
 
-The project also has reported OSCR ROM/save acquisition and deterministic rewritable-cartridge workflows. Their logs, hashes, photographs, versions, and dated records remain evidence gaps.
+The project also has reported OSCR ROM/save acquisition and deterministic rewritable-cartridge workflows. 
 
-## Canonical documents
+## Documents
 
 - [Project status and next actions](docs/STATUS.md)
 - [Research notebook, evidence, history, and decisions](docs/NOTEBOOK.md)
 - [Prior art and attribution](docs/REFERENCES.md)
 - [Hardware inventory](hardware/INVENTORY.md)
 
-## Repository layout
-
-```text
-docs/          Canonical project documentation
-hardware/      Inventory, fixtures, and hardware notes
-captures/      Raw and processed protocol captures
-artifacts/     Logs, manifests, hashes, and lawful evidence
-firmware/      Embedded implementations
-tools/         Analysis and capture utilities
-```
-
-## Claim boundary
-
-The reported physical interaction establishes only that the tested software image, updated EZ-Flash Jr, stock GBC, cable, and Singer IZEK exchanged enough information to produce machine motion and a thread-related halt. It does not establish connector pinout, voltage levels, signaling direction, serial clock ownership, packet framing, command semantics, timing, stitch encoding, model equivalence, the source of the halt, or generalized flash-cart compatibility.
-
 ## Attribution and licensing
 
 This work builds on prior reverse engineering by Shonumi concerning the Singer IZEK and Jaguar JN Game Boy sewing-machine interface.
-
-GBE+ is GPLv2-licensed. Copied or adapted code must retain applicable notices and comply with that license. Independently written work must still document the prior knowledge that informed it.
-
-No repository-wide software license has been selected yet. Do not commit commercial ROMs, proprietary firmware, credentials, or material without redistribution permission.
